@@ -1,0 +1,138 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+
+    background: url(../resources/o.jpg);
+    background-size: display;
+}
+.container-all{
+    width:100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px;
+    background: #DCDCDC;
+    margin-top:50px;
+    border-top: 6px solid GOLDENROD;
+
+}
+
+.titulo{
+    font-size: 25px;
+    text-align: center;
+    width:100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: #DCDCDC;
+    margin-top:15px;
+
+
+}
+.container-all img{
+    width:150px;
+    float: left;
+    margin-right: 30px;
+    margin bottom:20px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+
+}
+.container-all p{
+    font-size:18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+
+
+}
+.container-all .title{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: GOLDENROD;
+}
+/*-----------------HEADER-------------*/
+.logo {
+ width: 80px;
+ margin: auto;
+ margin-left: 10px;
+
+
+}
+li{
+float: left;
+list-style: none;
+padding: 0px;
+margin-right:10px;
+margin-top: 20px;
+
+}
+
+
+.nav{
+float: right;
+margin-right: 60px;
+
+}
+.nav ul{
+    list-style: none;
+}
+
+.ul > li >a{
+
+    margin-left: 60px;
+
+}
+
+a{
+text-decoration: none;
+color: GOLDENROD;
+}
+
+i{
+text-decoration: none;
+color: GOLDENROD;
+}
+button{
+text-decoration: none;
+
+}
+
+.ul li a:hover{
+    color: white;
+    transition: all .3s;
+}
+
+header nav a.activo{
+    color: white;
+}
+
+header{
+background-color: #221f1f;
+background-size: cover;
+padding: 30px 10;
+}
+
+
+
+
+
+
+/*--------Media Queries----------*/
+@media screen and (max-width: 800px){
+header.logotipo{
+
+    margin-bottom: 10px;
+    img-size: 30px;
+}
+
+
+}
