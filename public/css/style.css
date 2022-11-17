@@ -1,19 +1,14 @@
-
-
-
 img{
     width: 80px;
     margin: auto;
-   
-   
    }
-
 
 header{
     background-color: #221f1f;
     background-size: cover;
-    padding: 30px 10;
+    padding: 30px 10px;
     }
+
 .logotipo{
         margin-left: 70px;
         margin-top: 10px;
@@ -59,7 +54,7 @@ header nav a.activo{
         }
 
 body {
-    background: url(../resources/zelda1.jpg) no-repeat center center fixed;
+    background: url(../resources/teletubbies.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
