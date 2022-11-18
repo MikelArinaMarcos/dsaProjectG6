@@ -5,13 +5,25 @@ package dsa.proyecto.g6.Models;
 public class VOUsuario {
     String Username, Mail, Name, LastName, Password;
 
-public VOUsuario(String Username, String Mail,String Name, String LastName, String Password){
-    this.Username = Username;
-    this.Mail = Mail;
-    this.Name = Name;
-    this.LastName = LastName;
-    this.Password = Password;
+    public VOUsuario(){};
+    public VOUsuario(String Username, String Mail,String Name, String LastName, String Password){
+        this.Username = Username;
+        this.Mail = Mail;
+        this.Name = Name;
+        this.LastName = LastName;
+        this.Password = Password;
 }
+
+    public VOUsuario(Usuario u) {
+        this();
+        this.setName(u.getName());
+        this.setUsername(u.getUsername());
+        this.setMail(u.getMail());
+        this.setLastName(u.getLastName());
+        this.setPassword(u.getPassword());
+
+
+    }
 
     public String getUsername() {
         return Username;
