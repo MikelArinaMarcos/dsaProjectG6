@@ -1,31 +1,17 @@
 package dsa.proyecto.g6.Models;
 
-public class Usuario {
-
-String Username;
-String Mail;
-String Name;
-String LastName;
-String Password;
 
 
-public Usuario (){}
-    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword ){
-         this.Username = Username;
-         this.Mail = Mail;
-         this.Name = Name;
-         this.LastName = LastName;
-         this.Password = Pasword;
-    }
+public class VOUsuario {
+    String Username, Mail, Name, LastName, Password;
 
-    public Usuario(VOUsuario VOusuario) {
-         this();
-         this.setUsername(VOusuario.getUsername());
-         this.setMail(VOusuario.getMail());
-         this.setName(VOusuario.getName());
-         this.setLastName(VOusuario.getName());
-         this.setPassword(VOusuario.getPassword());
-    }
+public VOUsuario(String Username, String Mail,String Name, String LastName, String Password){
+    this.Username = Username;
+    this.Mail = Mail;
+    this.Name = Name;
+    this.LastName = LastName;
+    this.Password = Password;
+}
 
     public String getUsername() {
         return Username;
