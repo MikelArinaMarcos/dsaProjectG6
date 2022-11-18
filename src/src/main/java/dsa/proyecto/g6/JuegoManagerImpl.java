@@ -3,11 +3,14 @@ package dsa.proyecto.g6;
 import dsa.proyecto.g6.Models.Usuario;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 //import java.util.logging.Logger;
 import dsa.proyecto.g6.Models.VOCredenciales;
 import dsa.proyecto.g6.Models.VOUsuario;
 import org.apache.log4j.Logger;
+
+import static java.util.stream.Collectors.toList;
 
 public class JuegoManagerImpl implements JuegoManager{
 
@@ -99,6 +102,13 @@ public class JuegoManagerImpl implements JuegoManager{
         logger.info("There are " + ret+" users");
 
         return ret;
+    }
+
+    @Override
+    public List<Usuario> getAllUsers() {
+        List<Usuario> list = this.usuarios.values().stream().collect(toList());
+
+        return list;
     }
 
 

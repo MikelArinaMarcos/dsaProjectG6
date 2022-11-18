@@ -13,9 +13,9 @@ public VOCredenciales(String M , String P){
 }
 
     public VOCredenciales(Usuario a) {
-this();
-this.setPassword(a.getPassword());
-this.setMail(a.getMail());
+        this();
+        this.setPassword(a.getPassword());
+        this.setMail(a.getMail());
     }
 
     public String getMail() {

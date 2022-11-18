@@ -4,6 +4,8 @@ import dsa.proyecto.g6.Models.Usuario;
 import dsa.proyecto.g6.Models.VOCredenciales;
 import dsa.proyecto.g6.Models.VOUsuario;
 
+import java.util.List;
+
 public interface JuegoManager {
 
     public int size();
@@ -21,4 +23,6 @@ public interface JuegoManager {
     Usuario añadirUsuario(VOUsuario VOusuario);
 
     public int sizeUsers();
+
+    List<Usuario> getAllUsers();
 }
