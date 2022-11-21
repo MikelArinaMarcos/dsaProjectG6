@@ -1,13 +1,26 @@
+/*************************************/
+/*  DISEÑO DEL MENÚ HORIZONTAL COMÚN */
+/*************************************/
 
+/* Contenedor del menú */
+header{
+    background-color: black;
+    background-size: cover;
+    padding: 30px 10px;
+}
 
-
-img{
+.logotipo{
+    margin-left: 70px;
+    margin-top: 10px;
+    cursor: pointer;
     width: 80px;
     margin: auto;
-   
-   
-   }
+}
 
+.nav{
+    float: right;
+    margin-right: 60px;
+}
 
 header{
     background-color: #221f1f;
@@ -22,66 +35,60 @@ header{
     cursor: pointer;
     }
 
-li{
-        float: left;
-        list-style: none;
-        padding: 0px;
-        margin-right:10px;
-        margin-top: 10px;
-        
-        }
-.nav{
-        float: right;
-        margin-right: 60px;
-        
-        }
 .nav ul{
-            list-style: none;
-        }
-        
- .ul > li >a{
-        
-            margin-left: 60px;
-           
-        }
-        
+    list-style: none;
+}
+>>>>>>> web
+
+li{
+    float: left;
+    list-style: none;
+    padding: 0px;
+    margin-right:10px;
+    margin-top: 10px;
+}
+
+.ul > li >a{
+    margin-left: 60px;
+}
+
 a{
-        text-decoration: none;
-        color: GOLDENROD;
-        }
+    text-decoration: none;
+    color: goldenrod;
+}
+
 .ul li a:hover{
             color: white;
             transition: all .3s;
         }
         
 header nav a.activo{
-            color: white;
-        }
+    color: white;
+}
+
+/*********************/
+/* DISEÑO COMÚN BODY */
+/*********************/
 
 body {
-    background: url(../resources/zelda1.jpg) no-repeat center center fixed;
+    background: url(../resources/teletubbies.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;    
     font-family: "Roboto Mono", monospace;
     font-size: 16px;
-    
     color: #fff;
-}
-
-.page-container {
-    margin: 120px auto 0 auto;
 }
 
 b{
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    color: GOLDENROD;
+    color: goldenrod;
     font-family: "Roboto Momo", monospace;
 }
-b:hovor{
+b:hover{
     text-decoration: none;
     font-family: "valorant", monospace;
 }
@@ -94,10 +101,14 @@ h1 {
     text-shadow: 0 1px 4px rgba(0,0,0,.2);
 }
 
+/**************************************/
+/* DISEÑO FORMULARIOS SINGIN Y SIGNUP */
+/**************************************/
+
 form {
     position: relative;
     width: 305px;
-    margin: 15px auto 0 auto;
+    margin: 55px auto 0 auto;
     text-align: center;
 }
 
@@ -106,10 +117,9 @@ input {
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
-    background: #2d2d2d; /* browsers that don't support rgba */
-    background: rgba(45,45,45,.15);
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    background: #FFF8DC;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
     border-radius: 6px;
     border: 1px solid #3d3d3d; /* browsers that don't support rgba */
     border: 1px solid rgba(255,255,255,.15);
@@ -117,18 +127,18 @@ input {
     -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
     font-family: "Roboto Mono", monospace;
-    font-size: 14px;
-    color: #fff;
-    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    font-size: 16px;
+    color: goldenrod;
+    text-shadow: 0 1px 2px #000;
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
 }
 
-input:-moz-placeholder { color: #fff; }
-input:-ms-input-placeholder { color: #fff; }
-input::-webkit-input-placeholder { color: #fff; }
+input:-moz-placeholder { color: goldenrod; }
+input:-ms-input-placeholder { color: goldenrod; }
+input::-webkit-input-placeholder { color: goldenrod; }
 
 input:focus {
     outline: none;
@@ -149,11 +159,11 @@ button {
     height: 44px;
     margin-top: 25px;
     padding: 0;
-    background: GOLD;
+    background: black;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
-    border: 1px solid GOLD;
+    border: 2px solid goldenrod;
     -moz-box-shadow:
         0 15px 30px 0 rgba(255,255,255,.25) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
@@ -200,37 +210,9 @@ button:active {
     border: 0px solid #009F06FF;
 }
 
-.error {
-    display: none;
-    position: absolute;
-    top: 27px;
-    right: -55px;
-    width: 40px;
-    height: 40px;
-    background: #2d2d2d; /* browsers that don't support rgba */
-    background: rgba(45,45,45,.25);
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-}
-
-.error span {
-    display: inline-block;
-    margin-left: 2px;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 40px;
-    text-shadow: 0 1px 2px rgba(0,0,0,.1);
-    -o-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-
-}
-
 @media screen and (max-width: 767px) {
 body {
-        background: url(../resources/zelda1.jpg) no-repeat center center fixed;
+        background: url(../resources/teletubbies.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
