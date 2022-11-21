@@ -44,10 +44,10 @@ a{
 }
 
 .ul li a:hover{
-    color: white;
-    transition: all .3s;
-}
-
+            color: white;
+            transition: all .3s;
+        }
+        
 header nav a.activo{
     color: white;
 }
@@ -74,8 +74,7 @@ b{
     color: goldenrod;
     font-family: "Roboto Momo", monospace;
 }
-
-b:hover{
+b:hovor{
     text-decoration: none;
     font-family: "valorant", monospace;
 }
