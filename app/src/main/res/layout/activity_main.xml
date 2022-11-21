@@ -5,52 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
-  <Button
-      android:id="@+id/button2"
-      style="@style/Widget.AppCompat.Button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="300dp"
-      android:background="?android:attr/windowSplashScreenBackground"
-      android:fontFamily="@font/allerta_stencil"
-      android:text="Register"
-      android:textAllCaps="true"
-      android:textSize="16sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="PLANET\nHEROES"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="50dp"
-      android:fontFamily="@font/allerta_stencil2"
-      android:lineSpacingExtra="8sp"
-      android:textAllCaps="true"
-      android:textColor="@color/white"
-      android:textSize="60sp"
-      android:typeface="monospace"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      tools:text="Planet\nHeroes" />
+    <Button
+        android:id="@+id/Login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="#00FFFFFF"
+        android:text="LOGIN"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
-  <Button
-      android:id="@+id/button"
-      style="@style/Widget.AppCompat.Button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="?android:attr/windowSplashScreenBackground"
-      android:fontFamily="@font/allerta_stencil"
-      android:text="login"
-      android:textAllCaps="true"
-      android:textSize="16sp"
-      app:layout_constraintBottom_toTopOf="@+id/button2"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView"
-      app:layout_constraintVertical_bias="0.811" />
+    <Button
+        android:id="@+id/Register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:text="register"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Login_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
