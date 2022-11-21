@@ -198,7 +198,7 @@ button:active {
 
 @media screen and (max-width: 767px) {
 body {
-        background: url(../resources/teletubbies.jpg.jpg) no-repeat center center fixed;
+        background: url(../resources/teletubbies.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
