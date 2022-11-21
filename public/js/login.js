@@ -1,5 +1,3 @@
-var BASE_URI="http://147.83.7.208:8080/";
-
 $(document).ready(function (){
     $("#loginButton").click(function(){
         var username = $('#username').value();
