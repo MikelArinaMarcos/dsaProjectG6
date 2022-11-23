@@ -3,15 +3,15 @@ package dsa.proyecto.g6.Models;
 
 
 public class VOUsuario {
-    String Username, Mail, Name, LastName, Password;
+    private String username, mail, name, lastName, password;
 
     public VOUsuario(){};
-    public VOUsuario(String Username, String Mail,String Name, String LastName, String Password){
-        this.Username = Username;
-        this.Mail = Mail;
-        this.Name = Name;
-        this.LastName = LastName;
-        this.Password = Password;
+    public VOUsuario(String username, String mail,String name, String lastname, String password){
+        this.username = username;
+        this.mail = mail;
+        this.name = name;
+        this.lastName = lastname;
+        this.password = password;
 }
 
     public VOUsuario(Usuario u) {
@@ -19,49 +19,49 @@ public class VOUsuario {
         this.setName(u.getName());
         this.setUsername(u.getUsername());
         this.setMail(u.getMail());
-        this.setLastName(u.getLastName());
+        this.setLastName(u.getLastname());
         this.setPassword(u.getPassword());
 
 
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 }

@@ -2,20 +2,20 @@ package dsa.proyecto.g6.Models;
 
 public class Usuario {
 
-String Username;
-String Mail;
-String Name;
-String LastName;
-String Password;
+    private String  username;
+    private String mail;
+    private String name;
+    private String lastname;
+    private String password;
 
 
 public Usuario (){}
-    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword ){
-         this.Username = Username;
-         this.Mail = Mail;
-         this.Name = Name;
-         this.LastName = LastName;
-         this.Password = Pasword;
+    public Usuario (String username, String mail, String name, String lastname, String pasword ){
+         this.username = username;
+         this.mail = mail;
+         this.name = name;
+         this.lastname = lastname;
+         this.password = pasword;
     }
 
     public Usuario(VOUsuario VOusuario) {
@@ -23,47 +23,47 @@ public Usuario (){}
          this.setUsername(VOusuario.getUsername());
          this.setMail(VOusuario.getMail());
          this.setName(VOusuario.getName());
-         this.setLastName(VOusuario.getName());
+         this.setLastname(VOusuario.getName());
          this.setPassword(VOusuario.getPassword());
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getLastName() {
-        return LastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 }

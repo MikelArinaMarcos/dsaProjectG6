@@ -2,7 +2,7 @@ package dsa.proyecto.g6.Models;
 
 public class VOCredenciales {
 
-String Mail, Password;
+String mail, password;
 
 public VOCredenciales(){}
 public VOCredenciales(String M , String P){
@@ -19,18 +19,18 @@ public VOCredenciales(String M , String P){
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 }
