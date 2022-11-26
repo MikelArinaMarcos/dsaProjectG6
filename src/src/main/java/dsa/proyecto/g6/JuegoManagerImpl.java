@@ -47,7 +47,7 @@ public class JuegoManagerImpl implements JuegoManager{
 
     @Override
     public Usuario loginUsuario(VOCredenciales credenciales) {
-        logger.info("Login: " + credenciales);
+        logger.info("Login: " + credenciales.getMail());
 
         String u = getUser(credenciales);
         if (u == null){
@@ -65,7 +65,7 @@ public class JuegoManagerImpl implements JuegoManager{
     }
     public String getUser(VOCredenciales credencials) {
 
-        logger.info("Trying to get User "+ credencials);
+        logger.info("Trying to get User "+ credencials.getMail());
 
         String iduser = getUserByMail(credencials.getMail());
         if(iduser!=null)
@@ -74,14 +74,14 @@ public class JuegoManagerImpl implements JuegoManager{
                 return iduser;
             }
 
-        logger.warn("User Not Found "+credencials);
+        logger.warn("User Not Found "+credencials.getMail());
         return null;
     }
 
     @Override
     public Usuario añadirUsuario(VOUsuario VOusuario) {
 
-        logger.info("Trying to create new User: " + VOusuario);
+        logger.info("Trying to create new User: " + VOusuario.getUsername());
 
         if (getUserByMail(VOusuario.getMail()) == null) {
             Usuario u = new Usuario(VOusuario);
@@ -111,13 +111,37 @@ public class JuegoManagerImpl implements JuegoManager{
         return list;
     }
 
+    @Override
+    public Usuario deleteUser(VOUsuario VOusuario) {
+        logger.info("Trying to remove new User: " + VOusuario.getUsername());
+
+        if (getUserByMail(VOusuario.getMail()) != null) {
+            usuarios.remove(getUserByMail(VOusuario.getMail()));
+            logger.warn("User removed. Te arrepentiras de dejar este juego");
+            return null;
+        }
+        logger.warn("Could not remove user");
+
+        return null;
+    }
+
+    @Override
+    public Usuario getUserByKey(String key) {
+        logger.info("Trying to get User with key "+ key);
+        if(usuarios.containsKey(key)){
+            Usuario u = usuarios.get(key);
+            return u;
+        }
+        return null;
+    }
+
 
     public String getUserByMail(String mail) {
         logger.info("Trying to get User with mail "+mail);
 
         for (Map.Entry<String, Usuario> entry : this.usuarios.entrySet()) {
             if (entry.getValue().getMail().equals(mail)){
-                logger.info("User Found: "+entry.getValue());
+                logger.info("User Found: "+entry.getValue().getName());
 
                 return entry.getKey();
             }

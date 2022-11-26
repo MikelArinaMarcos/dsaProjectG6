@@ -25,4 +25,8 @@ public interface JuegoManager {
     public int sizeUsers();
 
     List<Usuario> getAllUsers();
+
+    public Usuario deleteUser(VOUsuario VOusuario);
+
+    public Usuario getUserByKey(String key);
 }

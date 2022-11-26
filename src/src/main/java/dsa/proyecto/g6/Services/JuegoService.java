@@ -11,11 +11,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Api(value = "/juego")
 @Path("/juego")
@@ -67,5 +67,36 @@ public class JuegoService {
         else return Response.status(201).entity(u).build();
     }
 
+    @GET
+    @ApiOperation(value = "get all Users", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Usuario.class, responseContainer="List"),
+    })
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsers() {
+
+        List<Usuario> tracks = this.jm.getAllUsers();
+
+        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
+        return Response.status(201).entity(entity).build()  ;
+
+    }
+
+    @DELETE
+    @ApiOperation(value = "delete a User", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 404, message = "Track not found")
+    })
+    @Path("/{mail}")
+    public Response deleteUser(@PathParam("mail") String mail) {
+        String key = this.jm.getUserByMail(mail);
+        Usuario t = this.jm.getUserByKey(key);
+        VOUsuario vou = new VOUsuario(t);
+        if (t == null) return Response.status(404).build();
+        else this.jm.deleteUser(vou);
+        return Response.status(201).build();
+    }
 
 }
