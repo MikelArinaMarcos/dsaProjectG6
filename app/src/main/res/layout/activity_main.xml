@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
+    android:background="@drawable/fondo3"
     tools:context=".MainActivity" >
 
     <EditText
@@ -12,15 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:accessibilityLiveRegion="none"
         android:background="#00FFFFFF"
         android:ems="10"
+        android:fontFamily="@font/allerta_stencil"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="PLANET\nHEROES"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="48sp"
+        android:textColor="#000000"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
