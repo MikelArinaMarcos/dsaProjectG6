@@ -12,15 +12,25 @@ import retrofit2.http.POST;
 
 public interface Swagger {
 
-    String URL = "http://localhost:8080/dsaApp/";
+    String URL = "http://10.0.2.2/dsaApp/";
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @POST("/juego/login")
     @FormUrlEncoded
     Call<Users> getPosts(@Field("password") String password,
                          @Field("mail") String mail);
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
+    @POST("/juego/users/register")
+    @FormUrlEncoded
+    Call<Users> getRegister(@Field("name") String name,
+                            @Field("username") String username,
+                            @Field("mail") String mail,
+                            @Field("lastName") String lastName,
+                            @Field("password") String password);
+
+
 }
