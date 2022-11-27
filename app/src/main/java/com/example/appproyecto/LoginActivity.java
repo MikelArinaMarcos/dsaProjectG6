@@ -2,6 +2,7 @@ package com.example.appproyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,9 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
-                //Snackbar mySnackbar = Snackbar.make(view, "Intentado Iniciar Sessión", BaseTransientBottomBar.LENGTH_SHORT);
-
                 Swagger swagger = Swagger.retrofit.create(Swagger.class);
                 //String mail = mail.getText().toString();
                 //String password = password.getText().toString();
@@ -46,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<Users> call, Response<Users> response) {
                         Snackbar mySnackbar = Snackbar.make(view, "Inicio de Sesion correcto", BaseTransientBottomBar.LENGTH_SHORT);
                         mySnackbar.show();
+                        startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
                     }
                     @Override
                     public void onFailure(Call<Users> call, Throwable t) {

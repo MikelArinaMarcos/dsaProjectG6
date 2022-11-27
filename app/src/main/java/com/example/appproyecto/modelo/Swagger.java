@@ -12,9 +12,9 @@ import retrofit2.http.POST;
 
 public interface Swagger {
 
-    String URL = "http://localhost:8080/swagger/";
+    String URL = "http://localhost:8080/dsaApp/";
 
-    @POST("/login")
+    @POST("/juego/login")
     @FormUrlEncoded
     Call<Users> getPosts(@Field("password") String password,
                          @Field("mail") String mail);

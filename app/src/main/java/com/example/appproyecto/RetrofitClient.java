@@ -26,4 +26,5 @@ public class RetrofitClient {
     public Swagger getMyApi() {
         return myApi;
     }
+
 }
