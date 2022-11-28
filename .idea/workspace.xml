@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="74e6b9d2-3442-498e-86de-1b6157489d22" name="Changes" comment="Commit classe" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2HvCJM9AthDEdJTmbJ8lU7u0kao" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Marcel/Documents/Universitat/Tercer_Curs/1r_Quatrimestre/DSA/Proyecto",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marcel\Documents\Universitat\Tercer_Curs\1r_Quatrimestre\DSA\Proyecto\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dsa.proyecto.g6.Main" />
+      <module name="src" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dsa.proyecto.g6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74e6b9d2-3442-498e-86de-1b6157489d22" name="Changes" comment="" />
+      <created>1669156098179</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669156098179</updated>
+      <workItem from="1669156100089" duration="1156000" />
+      <workItem from="1669244906086" duration="11000" />
+      <workItem from="1669244984653" duration="1842000" />
+      <workItem from="1669285258732" duration="687000" />
+      <workItem from="1669291403834" duration="819000" />
+      <workItem from="1669293346693" duration="397000" />
+      <workItem from="1669293837781" duration="251000" />
+      <workItem from="1669453005269" duration="7031000" />
+      <workItem from="1669495727396" duration="1032000" />
+      <workItem from="1669499138165" duration="687000" />
+      <workItem from="1669535395959" duration="1436000" />
+      <workItem from="1669575975648" duration="284000" />
+      <workItem from="1669581467303" duration="25000" />
+      <workItem from="1669586847128" duration="192000" />
+      <workItem from="1669587093721" duration="609000" />
+      <workItem from="1669632772055" duration="1724000" />
+    </task>
+    <task id="LOCAL-00001" summary="Prealpha v0.06 funcional. Corregidas funciones. Añadido Delete i GetAllUsers.">
+      <created>1669458867987</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669458867987</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit classe">
+      <created>1669636084791</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669636084791</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Prealpha v0.06 funcional. Corregidas funciones. Añadido Delete i GetAllUsers." />
+    <MESSAGE value="Commit classe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit classe" />
+  </component>
+</project>
