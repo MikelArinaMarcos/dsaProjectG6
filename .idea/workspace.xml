@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74e6b9d2-3442-498e-86de-1b6157489d22" name="Changes" comment="Commit classe" />
+    <list default="true" id="74e6b9d2-3442-498e-86de-1b6157489d22" name="Changes" comment="Commit 2 classe">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/src.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +44,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marcel\Documents\Universitat\Tercer_Curs\1r_Quatrimestre\DSA\Proyecto" />
       <recent name="C:\Users\Marcel\Documents\Universitat\Tercer_Curs\1r_Quatrimestre\DSA\Proyecto\src" />
     </key>
   </component>
@@ -87,7 +91,7 @@
       <workItem from="1669581467303" duration="25000" />
       <workItem from="1669586847128" duration="192000" />
       <workItem from="1669587093721" duration="609000" />
-      <workItem from="1669632772055" duration="1724000" />
+      <workItem from="1669632772055" duration="2704000" />
     </task>
     <task id="LOCAL-00001" summary="Prealpha v0.06 funcional. Corregidas funciones. Añadido Delete i GetAllUsers.">
       <created>1669458867987</created>
@@ -103,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669636084791</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit 2 classe">
+      <created>1669636336360</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669636336360</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +134,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prealpha v0.06 funcional. Corregidas funciones. Añadido Delete i GetAllUsers." />
     <MESSAGE value="Commit classe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit classe" />
+    <MESSAGE value="Commit 2 classe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 2 classe" />
   </component>
 </project>
