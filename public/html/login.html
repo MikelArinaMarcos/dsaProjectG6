@@ -1,36 +1,46 @@
 <!DOCTYPE html>
     <html lang="es">
         <head>
-            <title>Login</title>
-            <meta c = "UTF-8">
+            <title>EETAC SURVIVOR - Login</title>
+
+            <meta charset = "UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-            <link rel ="stylesheet" href ="../css/style.css">
+            <link rel ="stylesheet" href ="../css/login.css">
             <script type="text/javascript" src="../js/login.js"></script>
         </head>
         <body>
             <!-- Menú horizontal con las diferentes páginas. -->
             <header>
                 <div class ="contenedor"></div>
-                <img src="../resources/logo.jpeg" alt="PLANET HEROES" class="logotipo"></a>
+                <img src="../resources/LOGO.png" alt="PLANET HEROES" class="logotipo"></a>
                 <nav class="nav">
                     <ul class="ul">
-                        <li><a href="index.html" >INICIO</a></li>
                         <li><a href="descubrir.html">DESCUBRIR</a></li>
                         <li><a href="tienda.html">TIENDA</a></li>
                         <li><a href="login.html"class="activo">LOG IN</a></li>
                         <li><a href="signup.html">SIGN UP</a></li>
                         <li><a href="soporte.html" >OTROS </a></li>
+                        <li><a href="../index.html" >SALIR</a></li>
                     </ul>
                 </nav>
             </header>
-            <section>
-                <form action="" method="post">
-                    <h1>Login</h1>
-                    <input type="text" id="username" name="username" class="username" placeholder="Username">
-                    <input type="password" id="password" name="password" class="password" placeholder="Password">
-                    <button class="button" id="loginButton"><a>Send</a></button>
-                </form>
-            </section>
+            <main>
+                <img class="imagenFondo" src="../resources/eetac.jpeg">
+                <div class="formularioSignIn">
+                    <form action="" method="post">
+                        <h1>SIGN IN</h1>
+                        <input type="text" id="username" name="username" class="username" placeholder="Username">
+                        </br>
+                        <input type="password" id="password" name="password" class="password" placeholder="Password">
+                        </br>
+                        <button class="button" id="loginButton"><a>Send</a></button>
+                        </br></br>
+                        <p>¿No tienes un cuenta? <a href="signup.html">REGÍSTRATE</a></p>
+                    </form>
+                </div>
+            </main>
         </body>
     </html>
