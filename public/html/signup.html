@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Sign Up</title>
+        <title>EETAC SURVIVOR - Registro</title>
         <meta charset = "UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href ="../css/style.css">
+        <link rel ="stylesheet" href ="../css/signup.css">
+
         <script type="text/javascript" src="../js/signup.js"></script>
     </head>
 
     <body>
-        <header>
-            <div class ="contenedor"></div>
-            <img src="../resources/logo.jpeg" alt="PLANET HEROES" class="logotipo"></a>
-            <nav class="nav">
-                <ul class="ul">
-                    <li><a href="index.html" >INICIO</a></li>
-                    <li><a href="descubrir.html">DESCUBRIR</a></li>
-                    <li><a href="tienda.html">TIENDA</a></li>
-                    <li><a href="login.html"class="activo">LOG IN</a></li>
-                    <li><a href="signup.html">SIGN UP</a></li>
-                    <li><a href="soporte.html" >OTROS </a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="page-container">
-            <h1>REGISTRO</h1>
+    <header>
+        <div class ="contenedor"></div>
+        <img src="../resources/LOGO.png" alt="PLANET HEROES" class="logotipo"></a>
+        <nav class="nav">
+            <ul class="ul">
+                <li><a href="descubrir.html">DESCUBRIR</a></li>
+                <li><a href="tienda.html">TIENDA</a></li>
+                <li><a href="login.html">LOG IN</a></li>
+                <li><a href="signup.html" class="activo">SIGN UP</a></li>
+                <li><a href="soporte.html" >OTROS </a></li>
+                <li><a href="../index.html" >SALIR</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <img class="imagenFondo" src="../resources/eetac.jpeg">
+        <div class="formularioSignUp">
             <form action="" method="post">
+                <h1>REGISTRO</h1>
                 <input type="text" id="username" name="username" class="username" placeholder="Username">
+                </br>
                 <input type="mail" id="mail" name="mail" class="mail" placeholder="Mail">
+                </br>
                 <input type="name" id="name" name="name" class="name" placeholder="Name">
+                </br>
                 <input type="lastname" id="lastname" name="lastname" class="lastname" placeholder="Last Name">
+                </br>
                 <input type="password" id="password" name="password" class="password" placeholder="Password">
+                </br>
                 <input type="password" id="confirmpassword" name="confirmpassword" class="password" placeholder="Confirm Password">
+                </br>
                 <button class="button" id="signupButton"><a>Sign me up</a></button>
             </form>
-        </section>
+        </div>
+    </main>
+
     </body>
 </html>
