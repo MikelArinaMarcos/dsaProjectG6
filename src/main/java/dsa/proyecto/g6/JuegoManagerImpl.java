@@ -1,7 +1,9 @@
 package dsa.proyecto.g6;
 
+import dsa.proyecto.g6.Models.Tienda;
 import dsa.proyecto.g6.Models.Usuario;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,13 +18,16 @@ public class JuegoManagerImpl implements JuegoManager{
 
     private static JuegoManager instance;
     protected Map<String, Usuario> usuarios;
+    protected List<Tienda> objetos;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
 
 
 
     public JuegoManagerImpl(){
+
         this.usuarios = new HashMap<>();
+        this.objetos = new ArrayList<>();
     }
 
     public static JuegoManager getInstance(){
@@ -38,9 +43,9 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail) {
+    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero) {
 
-        Usuario usuario = new Usuario(Username, password, name, lastname, mail);
+        Usuario usuario = new Usuario(Username, password, name, lastname, mail, dinero);
         this.usuarios.put(usuario.getUsername(), usuario);
         logger.info("Usuarui registrado correctamente!!");
     }

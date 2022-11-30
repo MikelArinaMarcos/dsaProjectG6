@@ -27,9 +27,9 @@ public class JuegoService {
     public JuegoService() {
         this.jm = JuegoManagerImpl.getInstance();
         if (jm.sizeUsers()==0) {
-            Usuario user1 = this.jm.añadirUsuario(new VOUsuario("ErBryan","Bryan@gmail.com","Bryan", "Garcia", "1234"));
+            Usuario user1 = this.jm.añadirUsuario(new VOUsuario("ErBryan","Bryan@gmail.com","Bryan", "Garcia", "1234", 1000000));
             VOCredenciales cred1 = this.jm.getCredentials(user1);
-            Usuario user2 = this.jm.añadirUsuario(new VOUsuario("M.Rajoy","M.rajoy@ChipsAjoy.com",  "Mariano", "Rajoy", "aaa"));
+            Usuario user2 = this.jm.añadirUsuario(new VOUsuario("M.Rajoy","M.rajoy@ChipsAjoy.com",  "Mariano", "Rajoy", "aaa", 1000000));
             VOCredenciales cred3 = this.jm.getCredentials(user1);
         }
     }

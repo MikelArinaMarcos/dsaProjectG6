@@ -10,7 +10,7 @@ public interface JuegoManager {
 
     public int size();
 
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail);
+    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero);
 
     public Usuario loginUsuario(VOCredenciales credenciales);
 
