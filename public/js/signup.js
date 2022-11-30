@@ -28,7 +28,7 @@ $(document).ready(function(){
                 success: function (data){
                     console.log("Usuario creado correctamente");
                     console.log(data);
-                    alert('Regitro completo. ¡Ya formas parte de PLANET EETAC!');
+                    alert('Regitro completo. ¡Ya formas parte de EETAC SURVIVOR!');
                     // Datos que trasladamos al perfil
                     var username = data.username;
                     var name = data.name;

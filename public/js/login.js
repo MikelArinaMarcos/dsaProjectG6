@@ -1,4 +1,4 @@
-var BASE_URI="http://147.83.7.208:8080/dsaApp"
+var BASE_URI="http://147.83.7.208:8080/dsaApp";
 
 $(document).ready(function (){
     $("#loginButton").click(function(){

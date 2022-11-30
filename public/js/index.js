@@ -1,6 +1,6 @@
 function entrarJuego(){
-    window.location="../public/html/login.html";
+    window.location="/html/login.html";
 }
 function masInfo(){
-    window.location="../public/html/informacion.html";
+    window.location="/html/informacion.html";
 }

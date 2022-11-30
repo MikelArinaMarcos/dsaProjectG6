@@ -90,7 +90,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>edu.upc.dsa.Main</mainClass>
+                    <mainClass>dsa.proyecto.g6.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
