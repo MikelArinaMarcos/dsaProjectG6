@@ -1,13 +1,13 @@
 package dsa.proyecto.g6.Models;
 
-public class Objeto {
-
+public class VOObjeto {
     private String nombre;
     private String descripcion;
     private Integer precio;
 
-    public Objeto(){}
-    public Objeto(String nombre, String descripcion, int precio) {
+    public VOObjeto(){}
+
+    public VOObjeto(String nombre, String descripcion, int precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;

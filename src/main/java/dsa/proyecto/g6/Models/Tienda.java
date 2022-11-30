@@ -6,6 +6,7 @@ public class Tienda {
     private String descripcion;
     private Integer precio;
 
+    public Tienda(){}
 
     public Tienda(String nombreObjeto, String descripcion, Integer precio) {
         NombreObjeto = nombreObjeto;
