@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.appproyecto.modelo.Swagger;
-import com.example.appproyecto.modelo.Users;
+import com.example.appproyecto.modelo.User;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -39,16 +39,16 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Swagger swagger = Swagger.retrofit.create(Swagger.class);
-                Call<Users> call = swagger.getRegister(name.toString(),username.toString(),mail.toString(),surname.toString(),password.toString());
-                call.enqueue(new Callback<Users>() {
+                Call<User> call = swagger.getRegister(name.toString(),username.toString(),mail.toString(),surname.toString(),password.toString());
+                call.enqueue(new Callback<User>() {
                     @Override
-                    public void onResponse(Call<Users> call, Response<Users> response) {
+                    public void onResponse(Call<User> call, Response<User> response) {
                         Snackbar mySnackbar = Snackbar.make(view, "Registro correcto", BaseTransientBottomBar.LENGTH_SHORT);
                         mySnackbar.show();
                         startActivity(new Intent(RegisterActivity.this, PrincipalActivity.class));
                     }
                     @Override
-                    public void onFailure(Call<Users> call, Throwable t) {
+                    public void onFailure(Call<User> call, Throwable t) {
                         Snackbar mySnackbar = Snackbar.make(view, "Registro Incorrecto", BaseTransientBottomBar.LENGTH_SHORT);
                         mySnackbar.show();
                     }

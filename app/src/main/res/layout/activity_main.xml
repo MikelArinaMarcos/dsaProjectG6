@@ -34,7 +34,9 @@
         android:layout_marginTop="150dp"
         android:background="#00FFFFFF"
         android:text="LOGIN"
+        android:textColor="#000000"
         android:textSize="20sp"
+        app:iconTint="#050404"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
@@ -46,6 +48,7 @@
         android:background="#00FFFFFF"
         android:text="register"
         android:textAllCaps="true"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

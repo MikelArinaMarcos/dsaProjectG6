@@ -1,36 +1,40 @@
 package com.example.appproyecto.modelo;
 
-import java.util.List;
-
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface Swagger {
 
-    String URL = "http://10.0.2.2/dsaApp/";
+    String URL = "http://10.0.2.2:8080/dsaApp/";
+
+    HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY);
+    OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    @POST("/juego/login")
-    @FormUrlEncoded
-    Call<Users> getPosts(@Field("password") String password,
-                         @Field("mail") String mail);
+    @POST("juego/login")
+    Call<User> Login(@Body UserLogin ul);
+
 
     @POST("/juego/users/register")
     @FormUrlEncoded
-    Call<Users> getRegister(@Field("name") String name,
-                            @Field("username") String username,
-                            @Field("mail") String mail,
-                            @Field("lastName") String lastName,
-                            @Field("password") String password);
+    Call<User> getRegister(@Field("name") String name,
+                           @Field("username") String username,
+                           @Field("mail") String mail,
+                           @Field("lastName") String lastName,
+                           @Field("password") String password);
 
 
 }

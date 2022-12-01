@@ -1,11 +1,11 @@
 package com.example.appproyecto.modelo;
 
-public class Users {
+public class User {
     private String mail;
     private String password;
     private String name;
     private String username;
-    private String  lastName;
+    private String lastName;
 
     public String getMail() {
         return mail;
