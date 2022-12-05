@@ -3,4 +3,3 @@ function entrarJuego(){
 }
 function masInfo(){
     window.location="/html/informacion.html";
-}
