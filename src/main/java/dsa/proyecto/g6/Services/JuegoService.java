@@ -51,7 +51,6 @@ public class JuegoService {
         return Response.status(201).entity(vo).build();
     }
 
-
     @POST
     @ApiOperation(value = "login", notes = "Realitzar el login")
     @ApiResponses(value = {
