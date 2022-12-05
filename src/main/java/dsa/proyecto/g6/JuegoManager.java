@@ -1,8 +1,6 @@
 package dsa.proyecto.g6;
 
-import dsa.proyecto.g6.Models.Usuario;
-import dsa.proyecto.g6.Models.VOCredenciales;
-import dsa.proyecto.g6.Models.VOUsuario;
+import dsa.proyecto.g6.Models.*;
 
 import java.util.List;
 
@@ -10,7 +8,7 @@ public interface JuegoManager {
 
     public int size();
 
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail);
+    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero);
 
     public Usuario loginUsuario(VOCredenciales credenciales);
 
@@ -24,9 +22,15 @@ public interface JuegoManager {
 
     public int sizeUsers();
 
+    public int sizeObjects();
+
     List<Usuario> getAllUsers();
 
     public Usuario deleteUser(VOUsuario VOusuario);
 
     public Usuario getUserByKey(String key);
+
+    public Objeto añadirObjeto(Objeto VOObjeto);
+
+    List<Objeto> getAllObjects();
 }

@@ -3,15 +3,20 @@ package dsa.proyecto.g6.Models;
 
 
 public class VOUsuario {
-    String Username, Mail, Name, LastName, Password;
+    private String Username, Mail, Name, LastName, Password;
+    private Integer Dinero;
 
     public VOUsuario(){};
-    public VOUsuario(String Username, String Mail,String Name, String LastName, String Password){
+
+
+
+    public VOUsuario(String Username, String Mail, String Name, String LastName, String Password, Integer Dinero){
         this.Username = Username;
         this.Mail = Mail;
         this.Name = Name;
         this.LastName = LastName;
         this.Password = Password;
+        this.Dinero = Dinero;
 }
 
     public VOUsuario(Usuario u) {
@@ -21,6 +26,8 @@ public class VOUsuario {
         this.setMail(u.getMail());
         this.setLastName(u.getLastName());
         this.setPassword(u.getPassword());
+        this.setDinero(1000000);
+
 
 
     }
@@ -63,5 +70,13 @@ public class VOUsuario {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public Integer getDinero() {
+        return Dinero;
+    }
+
+    public void setDinero(Integer dinero) {
+        Dinero = dinero;
     }
 }

@@ -1,8 +1,6 @@
 import dsa.proyecto.g6.JuegoManager;
 import dsa.proyecto.g6.JuegoManagerImpl;
-import dsa.proyecto.g6.Models.VOUsuario;
-import dsa.proyecto.g6.Models.VOCredenciales;
-import dsa.proyecto.g6.Models.Usuario;
+import dsa.proyecto.g6.Models.*;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -20,10 +18,13 @@ public class JuegoManagerImplTest {
     public void setUp() {
         jm = new JuegoManagerImpl();
 
-        jm.añadirUsuario(new VOUsuario("PabloKsado","Pablo@PartidoPopular.es","Pablo", "Ksado", "SoyKsadoEnjoyer"));
-        jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña"));
-        jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste"));
+        jm.añadirUsuario(new VOUsuario("PabloKsado","Pablo@PartidoPopular.es","Pablo", "Ksado", "SoyKsadoEnjoyer", 1000000));
+        jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña", 1000000));
+        jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste", 1000000));
 
+        jm.añadirObjeto(new Objeto("Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
+        jm.añadirObjeto(new Objeto("Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
+        jm.añadirObjeto(new Objeto("Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
     }
 
     @After
@@ -40,7 +41,7 @@ public class JuegoManagerImplTest {
         Assert.assertEquals(3,this.jm.sizeUsers());
 
         logger.info("Añadimos 1 usuario: MikelElJefe");
-        this.jm.añadirUsuario(new VOUsuario("MikelElJefe","Mikel@ElJefe.com","Mikel", "ElJefe", "SoyElJefe"));
+        this.jm.añadirUsuario(new VOUsuario("MikelElJefe","Mikel@ElJefe.com","Mikel", "ElJefe", "SoyElJefe", 1000000));
 
         Assert.assertEquals(4,this.jm.sizeUsers());
 
@@ -62,7 +63,13 @@ public class JuegoManagerImplTest {
         Assert.assertEquals(null, this.jm.loginUsuario(cred2));
     }
 
-
-
+    @Test
+    public void Objetos(){
+        logger.info("---Prueba con los objetos---");
+        List<Objeto> objetos = this.jm.getAllObjects();
+        Objeto obj1 = objetos.get(2);
+        Assert.assertEquals("Muramasa",obj1.getNombre());
+        Assert.assertEquals(3,objetos.size());
+    }
 
 }

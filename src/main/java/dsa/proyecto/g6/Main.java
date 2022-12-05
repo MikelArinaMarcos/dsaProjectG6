@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URI;
 
 public class Main {
+    //public static final String BASE_URI = "http://147.83.7.208:8080/dsaApp/";
     public static final String BASE_URI = "http://localhost:8080/dsaApp/";
 
     /**
@@ -26,6 +27,7 @@ public class Main {
 
         BeanConfig beanConfig = new BeanConfig();
 
+        //beanConfig.setHost("147.83.7.208:8080");
         beanConfig.setHost("localhost:8080");
         beanConfig.setBasePath("/dsaApp");
         beanConfig.setContact("support@example.com");

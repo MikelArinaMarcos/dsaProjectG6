@@ -1,13 +1,12 @@
 package dsa.proyecto.g6;
 
-import dsa.proyecto.g6.Models.Usuario;
+import dsa.proyecto.g6.Models.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 //import java.util.logging.Logger;
-import dsa.proyecto.g6.Models.VOCredenciales;
-import dsa.proyecto.g6.Models.VOUsuario;
 import org.apache.log4j.Logger;
 
 import static java.util.stream.Collectors.toList;
@@ -16,13 +15,16 @@ public class JuegoManagerImpl implements JuegoManager{
 
     private static JuegoManager instance;
     protected Map<String, Usuario> usuarios;
+    protected List<Objeto> objetos;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
 
 
 
     public JuegoManagerImpl(){
+
         this.usuarios = new HashMap<>();
+        this.objetos = new ArrayList<>();
     }
 
     public static JuegoManager getInstance(){
@@ -38,9 +40,9 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail) {
+    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero) {
 
-        Usuario usuario = new Usuario(Username, password, name, lastname, mail);
+        Usuario usuario = new Usuario(Username, password, name, lastname, mail, dinero);
         this.usuarios.put(usuario.getUsername(), usuario);
         logger.info("Usuarui registrado correctamente!!");
     }
@@ -97,11 +99,33 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
+    public Objeto añadirObjeto(Objeto VOObjeto) {
+        logger.info("Trying to create new Object " + VOObjeto.getNombre());
+
+        this.objetos.add(VOObjeto);
+        logger.info("New Object added = "+VOObjeto);
+
+        return VOObjeto;
+    }
+
+    @Override
+    public List<Objeto> getAllObjects() {
+        List<Objeto> list = this.objetos;
+        return list;
+    }
+
+    @Override
     public int sizeUsers() {
         int ret = this.usuarios.size();
         logger.info("There are " + ret+" users");
 
         return ret;
+    }
+
+    @Override
+    public int sizeObjects() {
+        logger.info("El tamaño de la lista de objetos es :" + objetos.size());
+        return this.objetos.size();
     }
 
     @Override
@@ -134,6 +158,7 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         return null;
     }
+
 
 
     public String getUserByMail(String mail) {
