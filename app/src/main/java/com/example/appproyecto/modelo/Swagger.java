@@ -29,12 +29,7 @@ public interface Swagger {
 
 
     @POST("/juego/users/register")
-    @FormUrlEncoded
-    Call<User> getRegister(@Field("name") String name,
-                           @Field("username") String username,
-                           @Field("mail") String mail,
-                           @Field("lastName") String lastName,
-                           @Field("password") String password);
+    Call<User> Register(@Body User ur);
 
 
 }

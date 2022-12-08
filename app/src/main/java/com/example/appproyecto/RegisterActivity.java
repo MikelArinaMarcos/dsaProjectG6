@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.appproyecto.modelo.Swagger;
 import com.example.appproyecto.modelo.User;
+import com.example.appproyecto.modelo.UserLogin;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -39,17 +41,26 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Swagger swagger = Swagger.retrofit.create(Swagger.class);
-                Call<User> call = swagger.getRegister(name.toString(),username.toString(),mail.toString(),surname.toString(),password.toString());
+                //Call<Users> call = swagger.Login(mail.toString(),password.toString());
+                User ur = new User(mail.getText().toString(),password.getText().toString(),name.getText().toString(),username.getText().toString(),surname.getText().toString());
+                Call<User> call = swagger.Register(ur);
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-                        Snackbar mySnackbar = Snackbar.make(view, "Registro correcto", BaseTransientBottomBar.LENGTH_SHORT);
-                        mySnackbar.show();
-                        startActivity(new Intent(RegisterActivity.this, PrincipalActivity.class));
+                        Log.d("Patatilla",call.toString());
+                        Log.d("Patatuela",response.toString());
+                        if (response.isSuccessful()){
+                            startActivity(new Intent(RegisterActivity.this, PrincipalActivity.class));
+                        }
+                        else {
+                            Snackbar mySnackbar = Snackbar.make(view, "Registro Incorrecto", BaseTransientBottomBar.LENGTH_SHORT);
+                            mySnackbar.show();
+                        }
                     }
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-                        Snackbar mySnackbar = Snackbar.make(view, "Registro Incorrecto", BaseTransientBottomBar.LENGTH_SHORT);
+                        Snackbar mySnackbar = Snackbar.make(view, "No has podido Registrarte", BaseTransientBottomBar.LENGTH_SHORT);
+                        Log.d("Patata",t.toString());
                         mySnackbar.show();
                     }
                 });
