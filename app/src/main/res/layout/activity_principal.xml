@@ -8,6 +8,17 @@
     tools:context=".PrincipalActivity">
 
     <Button
+        android:id="@+id/tienda"
+        android:layout_width="207dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="20dp"
+        android:text="Tienda"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
         android:id="@+id/button3"
         android:layout_width="207dp"
         android:layout_height="77dp"

@@ -1,5 +1,7 @@
 package com.example.appproyecto.modelo;
 
+import java.util.List;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -8,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
+import retrofit2.http.*;
 
 public interface Swagger {
 
@@ -27,9 +29,11 @@ public interface Swagger {
     @POST("juego/login")
     Call<User> Login(@Body UserLogin ul);
 
-
-    @POST("/juego/users/register")
+    @POST("juego/users/register")
     Call<User> Register(@Body User ur);
+
+    @GET("juego/objetos")
+    Call<List<Objeto>> Objetos();
 
 
 }
