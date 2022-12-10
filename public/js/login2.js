@@ -1,11 +1,12 @@
-$(document).ready(function(){
-    var $users = $('#users');
-    var username = $('#username');
-    var password = $('#password');
+function inicioSesion(){
+    var $users = $('#users').value();
+    var $username = $('#username').value();
+    var $password = $('#password').value();
+    alert("Hola");
     $.ajax({
         contentType: "application/json",
         type: 'POST',
-        url:'/dsaApp/login',
+        url:'/dsaApp/juego/login',
         data: JSON.stringify({"username": username, "password": password}),
         success: function(users){
             alert("Welcome, " + username);
@@ -17,4 +18,4 @@ $(document).ready(function(){
                 alert("Datos incorrectos.");
         }
     });
-});
+};
