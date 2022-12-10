@@ -1,18 +1,17 @@
 function inicioSesion(){
-    var $users = $('#users').value();
-    var $username = $('#username').value();
-    var $password = $('#password').value();
+    var mail = $('#mail').val();
+    var password = $('#password').val();
     alert("Hola");
     $.ajax({
         contentType: "application/json",
         type: 'POST',
         url:'/dsaApp/juego/login',
-        data: JSON.stringify({"username": username, "password": password}),
+        data: JSON.stringify({"mail": mail, "password": password}),
         success: function(users){
-            alert("Welcome, " + username);
+            alert("Welcome, " + mail);
         },
         error: function (error){
-            if (username == "" || password == "")
+            if (mail == "" || password == "")
                 alert("Tienes que completar todos los campos.");
             else
                 alert("Datos incorrectos.");
