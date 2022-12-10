@@ -39,12 +39,6 @@ public class tienda extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        //List<String> input = new ArrayList<>();
-        //for (int i = 0; i < 100; i++) {
-        //    input.add("Objeto" + i);
-        //}
-        //mAdapter = new MyAdapter(input);
-        //recyclerView.setAdapter(mAdapter);
         adapter = new MyAdapter();
         recyclerView.setAdapter(adapter);
 
