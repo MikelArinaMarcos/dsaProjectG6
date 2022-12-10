@@ -1,20 +1,20 @@
-function inicioSesion() {
+$(document).ready(function(){
     var $users = $('#users');
-    var $mail = $('#mail');
-    var $password = $('#password');
+    var username = $('#username');
+    var password = $('#password');
     $.ajax({
         contentType: "application/json",
         type: 'POST',
-        url: '/dsaApp/juego/login',
-        data: JSON.stringify({"mail": $mail, "password": $password}),
-        success: function (users) {
-            alert("Welcome, " + mail);
+        url:'/dsaApp/login',
+        data: JSON.stringify({"username": username, "password": password}),
+        success: function(users){
+            alert("Welcome, " + username);
         },
-        error: function (error) {
-            if ($mail == "" || $password == "")
+        error: function (error){
+            if (username == "" || password == "")
                 alert("Tienes que completar todos los campos.");
             else
                 alert("Datos incorrectos.");
         }
     });
-}
+});
