@@ -1,5 +1,7 @@
 package dsa.proyecto.g6;
 
+import dsa.proyecto.g6.BBDD.FactorySession;
+import dsa.proyecto.g6.BBDD.Session;
 import dsa.proyecto.g6.Models.*;
 
 import java.util.ArrayList;
@@ -114,6 +116,7 @@ public class JuegoManagerImpl implements JuegoManager{
         return list;
     }
 
+
     @Override
     public int sizeUsers() {
         int ret = this.usuarios.size();
@@ -173,6 +176,41 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         logger.warn("Not found any user with "+mail);
 
+        return null;
+    }
+
+    @Override
+    public Usuario registroJugador(Usuario usuario) {
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            session.save(usuario);
+            return usuario;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario loginJugador(VOCredenciales credenciales) {/*
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            session.get(credenciales,0);
+            return credenciales;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        */
         return null;
     }
 }

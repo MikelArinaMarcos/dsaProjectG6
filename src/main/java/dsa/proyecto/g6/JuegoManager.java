@@ -33,4 +33,8 @@ public interface JuegoManager {
     public Objeto añadirObjeto(Objeto VOObjeto);
 
     List<Objeto> getAllObjects();
+
+    public Usuario registroJugador(Usuario usuario);
+
+    public Usuario loginJugador(VOCredenciales credenciales);
 }
