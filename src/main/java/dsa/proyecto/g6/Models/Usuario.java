@@ -3,30 +3,32 @@ package dsa.proyecto.g6.Models;
 
 import dsa.proyecto.g6.Exceptions.PocoDineroException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
 
-    private String Username;
-    private String Mail;
-    private String Name;
-    private String LastName;
-    private String Password;
+    private String username;
+    private String mail;
+    private String name;
+    private String lastName;
+    private String password;
 
-    private Integer Dinero;
-
-    private List<Tienda> objetosUsuario;
+    private Integer dinero;
+    //Ahora tiene mas sentido usar una tabla relacional en la  BBDD
+    //private ArrayList<Objeto> objetosUsuario;
 
 
 
     public Usuario (){}
     public Usuario (String Username,String Mail, String Name, String LastName, String Pasword, Integer Dinero ){
-         this.Username = Username;
-         this.Mail = Mail;
-         this.Name = Name;
-         this.LastName = LastName;
-         this.Password = Pasword;
-         this.Dinero = Dinero;
+         this.username = Username;
+         this.mail = Mail;
+         this.name = Name;
+         this.lastName = LastName;
+         this.password = Pasword;
+         this.dinero = Dinero;
+         //this.objetosUsuario = new ArrayList<>();
     }
 
     public Usuario(VOUsuario VOusuario) {
@@ -40,71 +42,71 @@ public class Usuario {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public Integer getDinero() {
-        return Dinero;
+        return dinero;
     }
 
     public void setDinero(Integer dinero) {
-        Dinero = dinero;
+        this.dinero = dinero;
     }
 
-    public List<Tienda> getObjetosUsuario() {
+    /*public List<Objeto> getObjetosUsuario() {
         return objetosUsuario;
     }
 
-    public void setObjetosUsuario(List<Tienda> objetosUsuario) {
+    public void setObjetosUsuario(ArrayList<Objeto> objetosUsuario) {
         this.objetosUsuario = objetosUsuario;
-    }
+    }*/
 
 
-    public void compraObjeto(Tienda objeto) throws PocoDineroException {
-        if (objeto.getPrecio() > this.Dinero){
+    /*public void compraObjeto(Tienda objeto) throws PocoDineroException {
+        if (objeto.getPrecio() > this.dinero){
             throw new PocoDineroException();
         }
 
-        this.Dinero = this.Dinero - objeto.getPrecio();
+        this.dinero = this.dinero - objeto.getPrecio();
         objetosUsuario.add(objeto);
 
-    }
+    }*/ //Porro tienda objetos
 
 
 }

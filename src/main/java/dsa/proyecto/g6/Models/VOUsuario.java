@@ -3,20 +3,18 @@ package dsa.proyecto.g6.Models;
 
 
 public class VOUsuario {
-    private String Username, Mail, Name, LastName, Password;
-    private Integer Dinero;
+    private String username, mail, name, lastName, password;
+    private Integer dinero;
 
     public VOUsuario(){};
 
-
-
     public VOUsuario(String Username, String Mail, String Name, String LastName, String Password, Integer Dinero){
-        this.Username = Username;
-        this.Mail = Mail;
-        this.Name = Name;
-        this.LastName = LastName;
-        this.Password = Password;
-        this.Dinero = Dinero;
+        this.username = Username;
+        this.mail = Mail;
+        this.name = Name;
+        this.lastName = LastName;
+        this.password = Password;
+        this.dinero = Dinero;
 }
 
     public VOUsuario(Usuario u) {
@@ -33,50 +31,50 @@ public class VOUsuario {
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public Integer getDinero() {
-        return Dinero;
+        return dinero;
     }
 
     public void setDinero(Integer dinero) {
-        Dinero = dinero;
+        this.dinero = dinero;
     }
 }

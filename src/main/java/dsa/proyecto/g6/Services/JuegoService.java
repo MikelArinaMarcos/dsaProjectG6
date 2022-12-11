@@ -48,12 +48,19 @@ public class JuegoService {
     })
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(VOUsuario user) {
+    public Response addUser(Usuario user) {/*   //Antes VOUsuario user
         Usuario u = this.jm.añadirUsuario(user);
         if (u==null) return Response.status(500).build();
 
         VOUsuario vo = new VOUsuario(u);
         return Response.status(201).entity(vo).build();
+        */
+        Usuario u = this.jm.registroJugador(user);
+        if (u==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
     }
 
     @POST

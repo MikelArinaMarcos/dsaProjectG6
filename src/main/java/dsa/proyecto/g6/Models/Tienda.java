@@ -2,24 +2,24 @@ package dsa.proyecto.g6.Models;
 
 public class Tienda {
 
-    private String NombreObjeto;
+    private String nombreObjeto;
     private String descripcion;
     private Integer precio;
 
     public Tienda(){}
 
     public Tienda(String nombreObjeto, String descripcion, Integer precio) {
-        NombreObjeto = nombreObjeto;
+        this.nombreObjeto = nombreObjeto;
         this.descripcion = descripcion;
         this.precio = precio;
     }
 
     public String getNombreObjeto() {
-        return NombreObjeto;
+        return nombreObjeto;
     }
 
     public void setNombreObjeto(String nombreObjeto) {
-        NombreObjeto = nombreObjeto;
+        this.nombreObjeto = nombreObjeto;
     }
 
     public String getDescripcion() {
