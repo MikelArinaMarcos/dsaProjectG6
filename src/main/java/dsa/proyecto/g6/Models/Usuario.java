@@ -3,6 +3,7 @@ package dsa.proyecto.g6.Models;
 
 import dsa.proyecto.g6.Exceptions.PocoDineroException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -14,8 +15,8 @@ public class Usuario {
     private String password;
 
     private Integer dinero;
-
-    private List<Tienda> objetosUsuario;
+    //Ahora tiene mas sentido usar una tabla relacional en la  BBDD
+    //private ArrayList<Objeto> objetosUsuario;
 
 
 
@@ -27,6 +28,7 @@ public class Usuario {
          this.lastName = LastName;
          this.password = Pasword;
          this.dinero = Dinero;
+         //this.objetosUsuario = new ArrayList<>();
     }
 
     public Usuario(VOUsuario VOusuario) {
@@ -87,16 +89,16 @@ public class Usuario {
         this.dinero = dinero;
     }
 
-    public List<Tienda> getObjetosUsuario() {
+    /*public List<Objeto> getObjetosUsuario() {
         return objetosUsuario;
     }
 
-    public void setObjetosUsuario(List<Tienda> objetosUsuario) {
+    public void setObjetosUsuario(ArrayList<Objeto> objetosUsuario) {
         this.objetosUsuario = objetosUsuario;
-    }
+    }*/
 
 
-    public void compraObjeto(Tienda objeto) throws PocoDineroException {
+    /*public void compraObjeto(Tienda objeto) throws PocoDineroException {
         if (objeto.getPrecio() > this.dinero){
             throw new PocoDineroException();
         }
@@ -104,7 +106,7 @@ public class Usuario {
         this.dinero = this.dinero - objeto.getPrecio();
         objetosUsuario.add(objeto);
 
-    }
+    }*/ //Porro tienda objetos
 
 
 }

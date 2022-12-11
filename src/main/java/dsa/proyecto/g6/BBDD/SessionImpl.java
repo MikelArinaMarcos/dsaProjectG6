@@ -26,7 +26,7 @@ public class SessionImpl implements Session {
             pstm = conn.prepareStatement(insertQuery);
             pstm.setObject(1, 0);
             int i = 2;
-            System.out.println("Entramos al bucle que ahce cosas del save");
+            //System.out.println("Entramos al bucle que ahce cosas del save");
             for (String field: ObjectHelper.getFields(entity)) {
                 pstm.setObject(i++, ObjectHelper.getter(entity, field));
             }
@@ -46,13 +46,13 @@ public class SessionImpl implements Session {
 
     @Override
     public void clean() {
-        String query = "TRUNCATE TABLE employee";
+        String query = "TRUNCATE TABLE Usuario";
         try {
             PreparedStatement pstm = conn.prepareStatement(query);
-            pstm.executeQuery(); //Aqui en teoria limpiamos employee
-            query = "TRUNCATE TABLE deparment";
+            pstm.executeQuery(); //Aqui en teoria limpiamos Usuario
+            /*query = "TRUNCATE TABLE deparment";
             pstm = conn.prepareStatement(query);
-            pstm.executeQuery(); //Aqui limpiamos deparment
+            pstm.executeQuery(); //Aqui limpiamos deparment*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
