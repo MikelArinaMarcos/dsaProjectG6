@@ -4,7 +4,9 @@ import dsa.proyecto.g6.Util.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -77,9 +79,33 @@ public class SessionImpl implements Session {
     public void delete(Object object) {
 
     }
-
+/*Crea una lista de los objetos que pasamos como parametro (relamente pasamos una clase?)*/
     public List<Object> findAll(Class theClass) {
-        return null;
+        String findQuery = QueryHelper.createQuerySELECTAll(theClass);
+        System.out.println(findQuery);
+        List<Object> listaObjeto = new ArrayList<Object>();
+        PreparedStatement pstm = null;
+
+        try {
+            pstm = conn.prepareStatement(findQuery);
+            pstm.setObject(1,1);
+            System.out.println("!-!-!-!-!-!-!-! SENTENCIA !-!-!-!-!-!-!-!");
+            System.out.println(pstm);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            while(rs.next()){
+                Object o = theClass.getDeclaredConstructor().newInstance();
+                for(int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                }
+                listaObjeto.add(o);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listaObjeto;
     }
 
     public List<Object> findAll(Class theClass, HashMap params) {

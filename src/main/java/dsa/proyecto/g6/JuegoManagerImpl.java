@@ -133,9 +133,21 @@ public class JuegoManagerImpl implements JuegoManager{
 
     @Override
     public List<Usuario> getAllUsers() {
-        List<Usuario> list = this.usuarios.values().stream().collect(toList());
-
-        return list;
+        //List<Usuario> list = this.usuarios.values().stream().collect(toList());
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Usuario> listaUsers = new ArrayList<Usuario>();
+            listaUsers = session.findAll(new Usuario().getClass());
+            return listaUsers;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
     }
 
     @Override

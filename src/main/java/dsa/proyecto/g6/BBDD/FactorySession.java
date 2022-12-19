@@ -21,8 +21,8 @@ public class FactorySession {
         Connection conn = null;
         try {
             conn =
-                    DriverManager.getConnection("jdbc:mariadb://147.83.7.208:3306/test?" +  //147.83.7.208
-                            "user=root&password=Mazinger72");
+                    DriverManager.getConnection("jdbc:mariadb://localhost:3306/test?" +  //147.83.7.208 - dsaProjectG6
+                            "user=root&password=dsaProjectG6");
             System.out.println("Connection created");
 
         } catch (SQLException ex) {

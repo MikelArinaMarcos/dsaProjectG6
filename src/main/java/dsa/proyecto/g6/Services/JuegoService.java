@@ -86,10 +86,10 @@ public class JuegoService {
     @Path("/users")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
-
-        List<Usuario> tracks = this.jm.getAllUsers();
-
-        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
+        List<Usuario> listaUsuario = this.jm.getAllUsers();
+        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(listaUsuario){};
+        //List<Usuario> tracks = this.jm.getAllUsers();
+        //GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
         return Response.status(201).entity(entity).build()  ;
 
     }
