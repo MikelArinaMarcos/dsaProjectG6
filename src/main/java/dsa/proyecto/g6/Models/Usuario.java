@@ -89,6 +89,17 @@ public class Usuario {
         this.dinero = dinero;
     }
 
+    public void comprarObjeto(Objeto objeto) {
+
+        this.dinero = this.dinero - objeto.getPrecio();
+        //mmm aqui se tendir auqe relacionar con las BBDD
+    }
+
+    public String getObject() {
+        return null;
+        //Aqui habria que retornar los objetos que tiene el usuario en la BBDD
+    }
+
     /*public List<Objeto> getObjetosUsuario() {
         return objetosUsuario;
     }

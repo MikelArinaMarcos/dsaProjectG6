@@ -2,6 +2,8 @@ package dsa.proyecto.g6;
 
 import dsa.proyecto.g6.BBDD.FactorySession;
 import dsa.proyecto.g6.BBDD.Session;
+import dsa.proyecto.g6.Exceptions.PocoDineroException;
+import dsa.proyecto.g6.Exceptions.YaTienesObjetoException;
 import dsa.proyecto.g6.Models.*;
 
 import java.util.ArrayList;
@@ -213,4 +215,23 @@ public class JuegoManagerImpl implements JuegoManager{
         */
         return null;
     }
+
+    @Override
+    public void comprarObjeto(String Username, String nombreObjeto) throws PocoDineroException, YaTienesObjetoException {
+        Objeto objeto = new Objeto();
+        Usuario username = new Usuario();
+        if (username.getDinero() < objeto.getPrecio()){
+            throw new PocoDineroException();
+        }
+        else if(username.getObject() == objeto.getNombre()){
+            throw new YaTienesObjetoException();
+        }
+        else{
+            this.usuarios.get(Username).comprarObjeto(objeto);
+        }
+
+
+    }
+
+
 }
