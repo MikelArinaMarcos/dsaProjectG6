@@ -112,8 +112,20 @@ public class JuegoManagerImpl implements JuegoManager{
 
     @Override
     public List<Objeto> getAllObjects() {
-        List<Objeto> list = this.objetos;
-        return list;
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Objeto> listaObjetos = new ArrayList<Objeto>();
+            listaObjetos = session.findAll(new Objeto().getClass());
+            return listaObjetos;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
     }
 
 

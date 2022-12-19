@@ -118,8 +118,8 @@ public class JuegoService {
     @Path("/objetos")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getObjects() {
-        List<Objeto> objetos = this.jm.getAllObjects();
-        GenericEntity<List<Objeto>> entity = new GenericEntity<List<Objeto>>(objetos) {};
+        List<Objeto> listaObjetos = this.jm.getAllObjects();
+        GenericEntity<List<Objeto>> entity = new GenericEntity<List<Objeto>>(listaObjetos){};
         return Response.status(201).entity(entity).build();
 
     }
