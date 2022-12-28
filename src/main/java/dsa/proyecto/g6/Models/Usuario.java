@@ -1,11 +1,6 @@
 package dsa.proyecto.g6.Models;
 
-
-import dsa.proyecto.g6.Exceptions.PocoDineroException;
-
-import java.util.ArrayList;
-import java.util.List;
-
+//Esta es la clase Usuario general, de esta clase nace VOUsuario para hacer el registro y VOCrendenciales para hacer el login
 public class Usuario {
 
     private String username;
@@ -14,6 +9,26 @@ public class Usuario {
     private String lastName;
     private String password;
 
+    private Integer idUsuario;
+
+    private Integer xp;
+
+    public Integer getXp() {
+        return xp;
+    }
+
+    public void setXp(Integer xp) {
+        this.xp = xp;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     private Integer dinero;
     //Ahora tiene mas sentido usar una tabla relacional en la  BBDD
     //private ArrayList<Objeto> objetosUsuario;
@@ -21,25 +36,18 @@ public class Usuario {
 
 
     public Usuario (){}
-    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword, Integer Dinero ){
+    public Usuario (Integer idUsuario, String Username,String Mail, String Name, String LastName, String Pasword){
+         this.idUsuario = idUsuario;
          this.username = Username;
          this.mail = Mail;
          this.name = Name;
          this.lastName = LastName;
          this.password = Pasword;
-         this.dinero = Dinero;
-         //this.objetosUsuario = new ArrayList<>();
+         this.dinero = 1000000;
+         this.xp = 0;
     }
 
-    public Usuario(VOUsuario VOusuario) {
-         this();
-         this.setUsername(VOusuario.getUsername());
-         this.setMail(VOusuario.getMail());
-         this.setName(VOusuario.getName());
-         this.setLastName(VOusuario.getName());
-         this.setPassword(VOusuario.getPassword());
-         this.setDinero(1000000);
-    }
+
 
     public String getUsername() {
         return username;

@@ -1,20 +1,19 @@
 package dsa.proyecto.g6.Models;
 
 
-
+//Esta calse me sirve para hacer el registro de un usuario nuevo, solo con los parametrs necesarios, mas adelante,
+//una vez hecho el registro, en la clase Usuario ya se le asignara un ID, el dinero, etc...
 public class VOUsuario {
     private String username, mail, name, lastName, password;
-    private Integer dinero;
 
     public VOUsuario(){};
 
-    public VOUsuario(String Username, String Mail, String Name, String LastName, String Password, Integer Dinero){
+    public VOUsuario(String Username, String Mail, String Name, String LastName, String Password){
         this.username = Username;
         this.mail = Mail;
         this.name = Name;
         this.lastName = LastName;
         this.password = Password;
-        this.dinero = Dinero;
 }
 
     public VOUsuario(Usuario u) {
@@ -24,10 +23,6 @@ public class VOUsuario {
         this.setMail(u.getMail());
         this.setLastName(u.getLastName());
         this.setPassword(u.getPassword());
-        this.setDinero(1000000);
-
-
-
     }
 
     public String getUsername() {
@@ -70,11 +65,5 @@ public class VOUsuario {
         this.password = password;
     }
 
-    public Integer getDinero() {
-        return dinero;
-    }
 
-    public void setDinero(Integer dinero) {
-        this.dinero = dinero;
-    }
 }
