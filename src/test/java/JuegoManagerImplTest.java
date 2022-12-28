@@ -17,10 +17,11 @@ public class JuegoManagerImplTest {
     @Before
     public void setUp() {
         jm = new JuegoManagerImpl();
+        jm.añadirUsuario(new VOUsuario("PabloKsado","Pablo@PartidoPopular.es","Pablo", "Ksado", "SoyKsadoEnjoyer"));
+        jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña"));
+        jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste"));
 
-        jm.añadirUsuario(new VOUsuario("PabloKsado","Pablo@PartidoPopular.es","Pablo", "Ksado", "SoyKsadoEnjoyer", 1000000));
-        jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña", 1000000));
-        jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste", 1000000));
+
 
         jm.añadirObjeto(new Objeto("Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
         jm.añadirObjeto(new Objeto("Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
@@ -41,7 +42,7 @@ public class JuegoManagerImplTest {
         Assert.assertEquals(3,this.jm.sizeUsers());
 
         logger.info("Añadimos 1 usuario: MikelElJefe");
-        this.jm.añadirUsuario(new VOUsuario("MikelElJefe","Mikel@ElJefe.com","Mikel", "ElJefe", "SoyElJefe", 1000000));
+        this.jm.añadirUsuario(new VOUsuario("MikelElJefe","Mikel@ElJefe.com","Mikel", "ElJefe", "SoyElJefe"));
 
         Assert.assertEquals(4,this.jm.sizeUsers());
 

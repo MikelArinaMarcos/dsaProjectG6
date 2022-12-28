@@ -13,6 +13,6 @@ public class QueryHelperTest {
     @Test
     public void testQuerySELECT(){
         Assert.assertEquals("SELECT * FROM Usuario WHERE ID = ?",
-                QueryHelper.createQuerySELECT(new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010)));
+                QueryHelper.createQuerySELECT(new Usuario(1,"Batman","super@mail.com","Bin","Superman","cum")));
     }
 }

@@ -13,6 +13,9 @@ public class Usuario {
 
     private Integer xp;
 
+
+
+
     public Integer getXp() {
         return xp;
     }
@@ -47,6 +50,13 @@ public class Usuario {
          this.xp = 0;
     }
 
+    public Usuario(VOUsuario VOUsuario) {
+        String username;
+        String mail;
+        String name;
+        String lastName;
+        String password;
+    }
 
 
     public String getUsername() {
