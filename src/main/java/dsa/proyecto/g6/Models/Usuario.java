@@ -1,5 +1,7 @@
 package dsa.proyecto.g6.Models;
 
+import dsa.proyecto.g6.Util.IDs;
+
 //Esta es la clase Usuario general, de esta clase nace VOUsuario para hacer el registro y VOCrendenciales para hacer el login
 public class Usuario {
 
@@ -39,8 +41,8 @@ public class Usuario {
 
 
     public Usuario (){}
-    public Usuario (Integer idUsuario, String Username,String Mail, String Name, String LastName, String Pasword){
-         this.idUsuario = idUsuario;
+    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword){
+         this.idUsuario = IDs.generarId();
          this.username = Username;
          this.mail = Mail;
          this.name = Name;
