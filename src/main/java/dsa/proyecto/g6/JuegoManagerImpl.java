@@ -42,9 +42,15 @@ public class JuegoManagerImpl implements JuegoManager{
 
         return ret;
     }
+/*
+    @Override
+    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero) {
 
-
-
+        Usuario usuario = new Usuario(Username, password, name, lastname, mail);
+        this.usuarios.put(usuario.getUsername(), usuario);
+        logger.info("Usuarui registrado correctamente!!");
+    }
+*/
     @Override
     public Usuario loginUsuario(VOCredenciales credenciales) {
         logger.info("Login: " + credenciales.getMail());
@@ -176,7 +182,7 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public Usuario registroJugador(Usuario usuario) {
+    public VOUsuario registroJugador(VOUsuario usuario) {
         Session session = null;
         try{
             session = FactorySession.openSession();
@@ -209,11 +215,11 @@ public class JuegoManagerImpl implements JuegoManager{
         */
         return null;
     }
-    /*hay que hacerla de nuevo teniendo en cuenta q todo se hace por id
+
     @Override
-    public void comprarObjeto(String idUsuario, String idObjeto) throws PocoDineroException, YaTienesObjetoException {
+    public void comprarObjeto(String Username, String nombreObjeto) throws PocoDineroException, YaTienesObjetoException {
         Objeto objeto = new Objeto();
-        Usuario username = new Usuario(Username, password, name, lastname, mail);
+        Usuario username = new Usuario();
         if (username.getDinero() < objeto.getPrecio()){
             throw new PocoDineroException();
         }
@@ -225,8 +231,7 @@ public class JuegoManagerImpl implements JuegoManager{
         }
 
 
-    }*/
-
+    }
 
 
 }

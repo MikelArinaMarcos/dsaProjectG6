@@ -1,38 +1,21 @@
 package dsa.proyecto.g6.Models;
 
-import dsa.proyecto.g6.Util.IDs;
 
-//Esta es la clase Usuario general, de esta clase nace VOUsuario para hacer el registro y VOCrendenciales para hacer el login
+import dsa.proyecto.g6.Exceptions.PocoDineroException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
 
+    private int idUsuario;
+
+    private int xp;
     private String username;
     private String mail;
     private String name;
     private String lastName;
     private String password;
-
-    private Integer idUsuario;
-
-    private Integer xp;
-
-
-
-
-    public Integer getXp() {
-        return xp;
-    }
-
-    public void setXp(Integer xp) {
-        this.xp = xp;
-    }
-
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     private Integer dinero;
     //Ahora tiene mas sentido usar una tabla relacional en la  BBDD
@@ -41,25 +24,30 @@ public class Usuario {
 
 
     public Usuario (){}
-    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword){
-         this.idUsuario = IDs.generarId();
+
+
+
+    public Usuario (String Username, String Mail, String Name, String LastName, String Pasword){
+         this.idUsuario = 0;
+         this.xp = 0;
          this.username = Username;
          this.mail = Mail;
          this.name = Name;
          this.lastName = LastName;
          this.password = Pasword;
-         this.dinero = 1000000;
-         this.xp = 0;
+         this.dinero = 10;
+
     }
 
-    public Usuario(VOUsuario VOUsuario) {
-        String username;
-        String mail;
-        String name;
-        String lastName;
-        String password;
-    }
+    public Usuario(VOUsuario VOusuario) {
+         this();
+         this.setUsername(VOusuario.getUsername());
+         this.setMail(VOusuario.getMail());
+         this.setName(VOusuario.getName());
+         this.setLastName(VOusuario.getName());
+         this.setPassword(VOusuario.getPassword());
 
+    }
 
     public String getUsername() {
         return username;
@@ -107,6 +95,22 @@ public class Usuario {
 
     public void setDinero(Integer dinero) {
         this.dinero = dinero;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
     }
 
     public void comprarObjeto(Objeto objeto) {

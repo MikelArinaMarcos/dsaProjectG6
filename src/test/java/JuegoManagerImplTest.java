@@ -17,11 +17,10 @@ public class JuegoManagerImplTest {
     @Before
     public void setUp() {
         jm = new JuegoManagerImpl();
+
         jm.añadirUsuario(new VOUsuario("PabloKsado","Pablo@PartidoPopular.es","Pablo", "Ksado", "SoyKsadoEnjoyer"));
         jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña"));
         jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste"));
-
-
 
         jm.añadirObjeto(new Objeto("Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
         jm.añadirObjeto(new Objeto("Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));

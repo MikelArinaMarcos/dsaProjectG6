@@ -7,12 +7,12 @@ public class QueryHelperTest {
     @Test
     public void testQueryINSERT() {
         Assert.assertEquals("INSERT INTO Usuario (ID, username, mail, name, lastName, password, dinero) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                QueryHelper.createQueryINSERT(new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010)));
+                QueryHelper.createQueryINSERT(new Usuario("Batman","super@mail.com","Bin","Superman","cum")));
     }
 
     @Test
     public void testQuerySELECT(){
         Assert.assertEquals("SELECT * FROM Usuario WHERE ID = ?",
-                QueryHelper.createQuerySELECT(new Usuario(1,"Batman","super@mail.com","Bin","Superman","cum")));
+                QueryHelper.createQuerySELECT(new Usuario("Batman","super@mail.com","Bin","Superman","cum")));
     }
 }
