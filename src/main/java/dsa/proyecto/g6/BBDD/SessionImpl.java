@@ -122,7 +122,10 @@ public class SessionImpl implements Session {
         List<Object> objectList = new ArrayList<Object>();
         try {
             pstm = conn.prepareStatement(findQuery);
-            pstm.setObject(1,1);
+            pstm.setObject(1,params.get("password"));
+            pstm.setObject(2,params.get("mail"));
+
+            System.out.println("QUERY DEL findByParams QUE SE EJECUTA!\n" + pstm.toString());
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             while (rs.next()){
