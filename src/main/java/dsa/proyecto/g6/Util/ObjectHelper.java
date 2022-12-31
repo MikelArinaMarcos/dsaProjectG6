@@ -26,11 +26,12 @@ public class ObjectHelper {
 
         try{
             clase = object.getClass();
-            System.out.println("Clase: "+ clase.toString());
+            //System.out.println("Clase: "+ clase.toString());
             Method[] methods = clase.getDeclaredMethods(); //Array de metodos que imoplican getters/setters
             for (Method m: methods){ //Buscamos todos los metodos de la clase (getter, setters etc)
                 if (m.getName().equals("set"+property.substring(0,1).toUpperCase()+property.substring(1))){ //si el metodo m es igual que setName(ponemos la primera en mayus) hace cosas
                     m.invoke(object, value); //employee.setName("pepito")
+                    System.out.println("Setter de " + property.toString() + " a " +value.toString() + " fet");
                 }
             }
         }

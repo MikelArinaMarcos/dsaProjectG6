@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SessionImpl implements Session {
     private final Connection conn;
@@ -122,9 +123,11 @@ public class SessionImpl implements Session {
         List<Object> objectList = new ArrayList<Object>();
         try {
             pstm = conn.prepareStatement(findQuery);
-            pstm.setObject(1,params.get("password"));
-            pstm.setObject(2,params.get("mail"));
-
+            int x = 1;
+            for (Object value : params.values()) {
+                pstm.setObject(x,value.toString());
+                x++;
+            }
             System.out.println("QUERY DEL findByParams QUE SE EJECUTA!\n" + pstm.toString());
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
