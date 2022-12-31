@@ -26,11 +26,11 @@ public class JuegoService {
     public JuegoService() {
         this.jm = JuegoManagerImpl.getInstance();
         if (jm.sizeUsers()==0) {
-            Usuario user1 = this.jm.añadirUsuario(new VOUsuario("ErBryan","Bryan@gmail.com","Bryan", "Garcia", "1234", 1000000));
+            Usuario user1 = this.jm.añadirUsuario(new VOUsuario("ErBryan","Bryan@gmail.com","Bryan", "Garcia", "1234"));
             VOCredenciales cred1 = this.jm.getCredentials(user1);
-            Usuario user2 = this.jm.añadirUsuario(new VOUsuario("M.Rajoy","M.rajoy@ChipsAjoy.com",  "Mariano", "Rajoy", "aaa", 1000000));
+            Usuario user2 = this.jm.añadirUsuario(new VOUsuario("M.Rajoy","M.rajoy@ChipsAjoy.com",  "Mariano", "Rajoy", "aaa"));
             VOCredenciales cred3 = this.jm.getCredentials(user1);
-            Usuario u3 = this.jm.añadirUsuario(new VOUsuario("a","a","a", "a", "a", 1000000)); //User para hacer tests mas rapidos
+            Usuario u3 = this.jm.añadirUsuario(new VOUsuario("a","a","a", "a", "a")); //User para hacer tests mas rapidos
         }
         if (jm.sizeObjects()==0){
             this.jm.añadirObjeto(new Objeto(1,"Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
@@ -48,19 +48,25 @@ public class JuegoService {
     })
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(Usuario user) {/*   //Antes VOUsuario user
+    public Response addUser(VOUsuario user) {//Antes VOUsuario user
+
+        System.out.println("-----REGISTER-----");
         Usuario u = this.jm.añadirUsuario(user);
         if (u==null) return Response.status(500).build();
 
         VOUsuario vo = new VOUsuario(u);
+        System.out.println(vo);
         return Response.status(201).entity(vo).build();
-        */
+
+        /*
         Usuario u = this.jm.registroJugador(user);
         if (u==null) {
             return Response.status(500).build();
         }
         else
             return Response.status(201).build();
+
+         */
     }
 
     @POST

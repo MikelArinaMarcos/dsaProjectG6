@@ -34,7 +34,7 @@ public interface JuegoManager {
 
     List<Objeto> getAllObjects();
 
-    public Usuario registroJugador(Usuario usuario);
+    public VOUsuario registroJugador(VOUsuario usuario);
 
     public Usuario loginJugador(VOCredenciales credenciales);
 }

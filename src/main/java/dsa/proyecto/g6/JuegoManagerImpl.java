@@ -11,8 +11,6 @@ import java.util.Map;
 //import java.util.logging.Logger;
 import org.apache.log4j.Logger;
 
-import static java.util.stream.Collectors.toList;
-
 public class JuegoManagerImpl implements JuegoManager{
 
     private static JuegoManager instance;
@@ -211,7 +209,7 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public Usuario registroJugador(Usuario usuario) {
+    public VOUsuario registroJugador(VOUsuario usuario) {
         Session session = null;
         try{
             session = FactorySession.openSession();
