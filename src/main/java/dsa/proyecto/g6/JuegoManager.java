@@ -8,7 +8,7 @@ public interface JuegoManager {
 
     public int size();
 
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero);
+    public void registrarUsuario(int idUsuario, int xp, String Username, String password, String name, String lastname, String mail, Integer dinero);
 
     public Usuario loginUsuario(VOCredenciales credenciales);
 

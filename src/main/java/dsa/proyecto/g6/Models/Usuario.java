@@ -8,12 +8,15 @@ import java.util.List;
 
 public class Usuario {
 
+
+    private int idUsuario;
+
+    private int xp;
     private String username;
     private String mail;
     private String name;
     private String lastName;
     private String password;
-
     private Integer dinero;
     //Ahora tiene mas sentido usar una tabla relacional en la  BBDD
     //private ArrayList<Objeto> objetosUsuario;
@@ -21,14 +24,27 @@ public class Usuario {
 
 
     public Usuario (){}
-    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword, Integer Dinero ){
+    //Cosntructor de un usuario nuevo, no necesitamos XP, ID y el dinero se lo metemos por code
+    public Usuario (String Username,String Mail, String Name, String LastName, String Pasword){
          this.username = Username;
+         this.xp = 0;
          this.mail = Mail;
          this.name = Name;
          this.lastName = LastName;
          this.password = Pasword;
-         this.dinero = Dinero;
+         this.dinero = 100;
          //this.objetosUsuario = new ArrayList<>();
+    }
+    //Constructor para un usuario que ya existe y recuperamos de la BBD, por lo que necesitamos todos sus campos
+    public Usuario(int idUsuario, int xp, String username, String mail, String name, String lastName, String password, Integer dinero) {
+        this.idUsuario = idUsuario;
+        this.xp = xp;
+        this.username = username;
+        this.mail = mail;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.dinero = dinero;
     }
 
     public Usuario(VOUsuario VOusuario) {
@@ -89,6 +105,21 @@ public class Usuario {
         this.dinero = dinero;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
     /*public List<Objeto> getObjetosUsuario() {
         return objetosUsuario;
     }

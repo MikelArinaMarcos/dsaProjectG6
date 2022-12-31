@@ -12,17 +12,20 @@ public class QueryHelper {
 
         String [] fields = ObjectHelper.getFields(entity); //Recogemos cada campo de la clase
 
-        sb.append("ID");
+        //sb.append(fields[0]);
         for (String field: fields) {
-            sb.append(", ").append(field); //Los vamos añadiendo junto con la ,
-        }
+            sb.append(field).append(", ");
 
+            //sb.append(", ").append(field); //Los vamos añadiendo junto con la ,
+        }
+        //Hacemos esto para quitar el espacio y la coma finales
+        sb=sb.replace(sb.length()-2,sb.length(),"");
         sb.append(") VALUES (?");
 
         for (String field: fields) {
             sb.append(", ?");
         }
-
+        sb=sb.replace(sb.length()-3,sb.length(),"");
         sb.append(")");
 
         return sb.toString();

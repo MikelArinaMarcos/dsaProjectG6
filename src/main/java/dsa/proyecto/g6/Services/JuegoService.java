@@ -33,9 +33,9 @@ public class JuegoService {
             Usuario u3 = this.jm.añadirUsuario(new VOUsuario("a","a","a", "a", "a", 1000000)); //User para hacer tests mas rapidos
         }
         if (jm.sizeObjects()==0){
-            this.jm.añadirObjeto(new Objeto("Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
-            this.jm.añadirObjeto(new Objeto("Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
-            this.jm.añadirObjeto(new Objeto("Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
+            this.jm.añadirObjeto(new Objeto(1,"Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
+            this.jm.añadirObjeto(new Objeto(2,"Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
+            this.jm.añadirObjeto(new Objeto(3,"Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
         }
     }
 

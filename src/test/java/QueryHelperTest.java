@@ -6,19 +6,19 @@ import org.junit.Test;
 public class QueryHelperTest {
     @Test
     public void testQueryINSERT() {
-        Assert.assertEquals("INSERT INTO Usuario (ID, username, mail, name, lastName, password, dinero) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                QueryHelper.createQueryINSERT(new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010)));
+        Assert.assertEquals("INSERT INTO Usuario (idUsuario, xp, username, mail, name, lastName, password, dinero) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                QueryHelper.createQueryINSERT(new Usuario(1,0,"Batman","super@mail.com","Bin","Superman","cum",1010)));
     }
 
     @Test
     public void testQuerySELECT(){
         Assert.assertEquals("SELECT * FROM Usuario WHERE ID = ?",
-                QueryHelper.createQuerySELECT(new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010)));
+                QueryHelper.createQuerySELECT(new Usuario(1,0,"Batman","super@mail.com","Bin","Superman","cum",1010)));
     }
 
     @Test
     public void testQuerySELECTALL(){
-        Usuario u = new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010);
+        Usuario u = new Usuario(1,0,"Batman","super@mail.com","Bin","Superman","cum",1010);
         Class clase = u.getClass();
         Assert.assertEquals("SELECT * FROM Usuario",
                 QueryHelper.createQuerySELECTAll(clase));

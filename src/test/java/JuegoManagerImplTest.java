@@ -22,9 +22,9 @@ public class JuegoManagerImplTest {
         jm.añadirUsuario(new VOUsuario("Marshall","Marshall@gmail.com", "Marcel", "Marco","Estoesunacontraseña", 1000000));
         jm.añadirUsuario(new VOUsuario("MarioRelajao","MarioRelajadisimo@gmail.com",  "Mario", "Cerdà", "SoyLoLPlayerComoSupiste", 1000000));
 
-        jm.añadirObjeto(new Objeto("Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
-        jm.añadirObjeto(new Objeto("Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
-        jm.añadirObjeto(new Objeto("Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
+        jm.añadirObjeto(new Objeto(1,"Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
+        jm.añadirObjeto(new Objeto(2,"Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
+        jm.añadirObjeto(new Objeto(3,"Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
     }
 
     @After

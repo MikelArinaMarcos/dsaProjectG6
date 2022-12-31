@@ -42,9 +42,9 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public void registrarUsuario(String Username, String password, String name, String lastname, String mail, Integer dinero) {
+    public void registrarUsuario(int idUsuario, int xp, String Username, String password, String name, String lastname, String mail, Integer dinero) {
 
-        Usuario usuario = new Usuario(Username, password, name, lastname, mail, dinero);
+        Usuario usuario = new Usuario(idUsuario, xp, Username, password, name, lastname, mail, dinero);
         this.usuarios.put(usuario.getUsername(), usuario);
         logger.info("Usuarui registrado correctamente!!");
     }

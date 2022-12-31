@@ -22,7 +22,7 @@ public class ORMTest {
 
     @Test
     public void test1(){
-        Usuario u = new Usuario("Batman","super@mail.com","Bin","Superman","cum",1010);
+        Usuario u = new Usuario(1,0,"Batman","super@mail.com","Bin","Superman","cum",1010);
         Session s = FactorySession.openSession();
         s.save(u);
     }
