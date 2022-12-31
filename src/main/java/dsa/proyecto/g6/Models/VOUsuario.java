@@ -8,13 +8,13 @@ public class VOUsuario {
 
     public VOUsuario(){};
 
-    public VOUsuario(String Username, String Mail, String Name, String LastName, String Password, Integer Dinero){
+    public VOUsuario(String Username, String Mail, String Name, String LastName, String Password){
         this.username = Username;
         this.mail = Mail;
         this.name = Name;
         this.lastName = LastName;
         this.password = Password;
-        this.dinero = Dinero;
+
 }
 
     public VOUsuario(Usuario u) {
@@ -24,7 +24,6 @@ public class VOUsuario {
         this.setMail(u.getMail());
         this.setLastName(u.getLastName());
         this.setPassword(u.getPassword());
-        this.setDinero(1000000);
 
 
 
