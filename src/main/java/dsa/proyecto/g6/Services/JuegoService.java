@@ -73,6 +73,8 @@ public class JuegoService {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response logIn(VOCredenciales credencials) {
+        System.out.println("-----LOGIN-----");
+        System.out.println("Mail: "+ credencials.getMail());
         Usuario u = this.jm.loginUsuario(credencials);
         if (u==null)  return Response.status(500).build();
         else return Response.status(201).entity(u).build();

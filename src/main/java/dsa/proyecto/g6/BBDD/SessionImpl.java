@@ -115,4 +115,27 @@ public class SessionImpl implements Session {
     public List<Object> query(String query, Class theClass, HashMap params) {
         return null;
     }
+
+    public List<Object> findByParams(Object entity, HashMap params){
+        String findQuery = QueryHelper.createQuerySELECTByParams(entity,params);
+        PreparedStatement pstm = null;
+        List<Object> objectList = new ArrayList<Object>();
+        try {
+            pstm = conn.prepareStatement(findQuery);
+            pstm.setObject(1,1);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            while (rs.next()){
+                Object o = entity.getClass().newInstance();
+                for(int i = 1; i<=rs.getMetaData().getColumnCount();i++){
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i), rs.getObject(i));
+                }
+                objectList.add(o);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return objectList;
+    }
 }

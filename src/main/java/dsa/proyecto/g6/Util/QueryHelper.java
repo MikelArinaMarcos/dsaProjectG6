@@ -1,5 +1,7 @@
 package dsa.proyecto.g6.Util;
 
+import java.util.HashMap;
+
 public class QueryHelper {
 
     /*Query que recibe una entidad/objeto y hace un INSERT de ese elemento*/
@@ -42,6 +44,15 @@ public class QueryHelper {
     public static String createQuerySELECTAll(Class theClass){
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(theClass.getSimpleName()); //Por ej employee = SELECT * FROM Employee
+        return sb.toString();
+    }
+    public static String createQuerySELECTByParams(Object object, HashMap params){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(object.getClass().getSimpleName()).append(" ");
+        sb.append("WHERE 1=1");
+        params.forEach((k,v)->sb.append(" AND ").append(k.toString()).append(" = ").append("?"));
+        System.out.println("QUERY POR PARAMETROS Y HASHMAP");
+        System.out.println(sb.toString());
         return sb.toString();
     }
 

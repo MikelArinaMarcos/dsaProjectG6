@@ -52,16 +52,23 @@ public class JuegoManagerImpl implements JuegoManager{
     @Override
     public Usuario loginUsuario(VOCredenciales credenciales) {
         logger.info("Login: " + credenciales.getMail());
-
-        String u = getUser(credenciales);
-        if (u == null){
-            logger.warn("Login no aceptado");
-
-            return null;
+        Session session = null;
+        Usuario user = new Usuario();
+        List<Usuario> u = new ArrayList<Usuario>();
+        HashMap<String,String> params = new HashMap<String,String>();
+        params.put("mail",credenciales.getMail());
+        params.put("password",credenciales.getPassword());
+        try{
+            session = FactorySession.openSession();
+            u = session.findByParams(user,params);
+            if (u.get(0)!=null){
+                return u.get(0);
+            }
         }
-        logger.info("Login aceptado");
-        return usuarios.get(u);
-
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public VOCredenciales getCredentials(Usuario a) {
