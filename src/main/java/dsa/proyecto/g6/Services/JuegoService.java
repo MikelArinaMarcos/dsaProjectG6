@@ -49,7 +49,7 @@ public class JuegoService {
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(VOUsuario user) {//Antes VOUsuario user
-
+/*
         System.out.println("-----REGISTER-----");
         Usuario u = this.jm.añadirUsuario(user);
         if (u==null) return Response.status(500).build();
@@ -57,16 +57,16 @@ public class JuegoService {
         VOUsuario vo = new VOUsuario(u);
         System.out.println(vo);
         return Response.status(201).entity(vo).build();
+*/
 
-        /*
-        Usuario u = this.jm.registroJugador(user);
+        VOUsuario u = this.jm.registroJugador(user);
         if (u==null) {
             return Response.status(500).build();
         }
         else
             return Response.status(201).build();
 
-         */
+
     }
 
     @POST
@@ -130,6 +130,37 @@ public class JuegoService {
         GenericEntity<List<Objeto>> entity = new GenericEntity<List<Objeto>>(listaObjetos){};
         return Response.status(201).entity(entity).build();
 
+    }
+    @POST
+    @ApiOperation(value = "Add an object", notes = "Añadimos objeto a la tabla de objetos")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= Objeto.class),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/objeto/add")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response insertarObjeto(Objeto objeto) {
+        Objeto u = this.jm.insertarObjeto(objeto);
+        if (u==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
+    }
+
+    @GET
+    @ApiOperation(value = "get an Object", notes = "")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Objeto.class),
+            @ApiResponse(code = 404, message = "Objeto not found")
+    })
+    @Path("/objeto/{idObjeto}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getObjeto(@PathParam("idObjeto") int idObjeto) {
+        Objeto i = this.jm.getObjeto(idObjeto);
+        if (i == null) return Response.status(404).build();
+        else  return Response.status(201).entity(i).build();
     }
 
 }

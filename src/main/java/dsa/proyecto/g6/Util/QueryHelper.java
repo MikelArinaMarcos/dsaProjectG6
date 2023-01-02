@@ -3,6 +3,10 @@ package dsa.proyecto.g6.Util;
 import java.util.HashMap;
 
 public class QueryHelper {
+    //AQUI PREPARA LA QUERY (INSERT INTO...) Y LOS VALORES DE LA QUERY SE PONEN EN EL SESSION EJ: NAME, SURNAME...
+
+    //EN EL TEST, PODEMOS VER INTERROGANTES (?), QUE ES LO QUE AQUI NO SE ESPECIFICA, Y ES EN EL SESSION DONDE SE AÑADEN
+
 
     /*Query que recibe una entidad/objeto y hace un INSERT de ese elemento*/
 
@@ -12,7 +16,7 @@ public class QueryHelper {
         sb.append(entity.getClass().getSimpleName()).append(" ");
         sb.append("(");
 
-        String [] fields = ObjectHelper.getFields(entity); //Recogemos cada campo de la clase
+        String [] fields = ObjectHelper.getFields(entity); //Recogemos cada campo de la clase EJ: XP, NOMBRE...
 
         //sb.append(fields[0]);
         for (String field: fields) {
