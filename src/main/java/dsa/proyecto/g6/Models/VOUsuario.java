@@ -4,7 +4,7 @@ package dsa.proyecto.g6.Models;
 
 public class VOUsuario {
     private String username, mail, name, lastName, password;
-    private Integer dinero;
+    //private Integer dinero;
 
     public VOUsuario(){};
 
@@ -68,7 +68,7 @@ public class VOUsuario {
     public void setPassword(String password) {
         this.password = password;
     }
-
+/*
     public Integer getDinero() {
         return dinero;
     }
@@ -76,4 +76,6 @@ public class VOUsuario {
     public void setDinero(Integer dinero) {
         this.dinero = dinero;
     }
+    */
+
 }

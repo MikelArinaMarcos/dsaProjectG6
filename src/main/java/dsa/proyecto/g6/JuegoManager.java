@@ -36,5 +36,9 @@ public interface JuegoManager {
 
     public VOUsuario registroJugador(VOUsuario usuario);
 
+    Objeto insertarObjeto(Objeto objeto);
+
+    Objeto getObjeto(int idObjeto);
+
     public Usuario loginJugador(VOCredenciales credenciales);
 }
