@@ -12,9 +12,9 @@ public class QueryHelper {
 
     public static String createQueryINSERT(Object entity) {
 
-        StringBuffer sb = new StringBuffer("INSERT INTO ");
-        sb.append(entity.getClass().getSimpleName()).append(" ");
-        sb.append("(");
+        StringBuffer sb = new StringBuffer("INSERT INTO "); //INSERT INTO
+        sb.append(entity.getClass().getSimpleName()).append(" "); //PREGUNTO QUE ES(CLASE, OBJETO) Y COJO EL NOMBRE
+        sb.append("("); //INSERT INTO Usuario (
 
         String [] fields = ObjectHelper.getFields(entity); //Recogemos cada campo de la clase EJ: XP, NOMBRE...
 

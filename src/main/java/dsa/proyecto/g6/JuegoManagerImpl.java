@@ -225,6 +225,68 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
     }
 
+
+
+    @Override
+    public Objeto insertarObjeto(Objeto objeto) {
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            session.save(objeto);
+            objetos.add(objeto);
+            return objeto;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
+    public Objeto getObjeto (int idObjeto){
+        System.out.println("Vamos a la buqueda del objeto con id "+idObjeto);
+/*        for (Objeto i: this.objetos) {
+            if (i.getIdObjeto()==idObjeto) {
+                System.out.println("getObjeto("+idObjeto+"): "+i);
+                return i;
+            }
+        }
+        System.out.println("not found " + idObjeto);
+        return null;
+ */
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Objeto> listaObjetos = new ArrayList<Objeto>();
+            listaObjetos = session.findAll(new Objeto().getClass());
+            this.objetos = listaObjetos;
+            for (Objeto i: this.objetos) {
+                if (i.getIdObjeto()==idObjeto) {
+                    System.out.println("getObjeto("+idObjeto+"): "+i);
+                    return i;
+                }
+            }
+            System.out.println("not found " + idObjeto);
+            return null;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+
+
+
+
+
+
     @Override
     public Usuario loginJugador(VOCredenciales credenciales) {/*
         Session session = null;
