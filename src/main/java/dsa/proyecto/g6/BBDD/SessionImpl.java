@@ -83,6 +83,7 @@ public class SessionImpl implements Session {
                 ptsm.setObject(i++, ObjectHelper.getter(object, field));
             }
             ptsm.setObject(i,id);
+            ptsm.executeQuery();
             System.out.println("SENTENCIA UPDATE QUE SE EJECUTA FINALMENTE!!!\n"+ptsm);
         }
         catch (Exception e) {
