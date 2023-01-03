@@ -209,7 +209,20 @@ public class JuegoService {
         else
             return Response.status(201).build();
     }
-
+    @PUT
+    @ApiOperation(value = "update Objeto", notes = "Porfavor no explotes v2")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Fino mi \uD83E\uDD19pana\uD83E\uDD19"),
+            @ApiResponse(code = 404, message = "Usuario not found")
+    })
+    @Path("/objeto/update/{idObjeto}")
+    public Response updateObjeto(Objeto objeto, @PathParam("idObjeto") int id) {
+        Objeto o = this.jm.updateObjeto(objeto, id);
+        if (o == null)
+            return Response.status(404).build();
+        else
+            return Response.status(201).build();
+    }
 
 
 }

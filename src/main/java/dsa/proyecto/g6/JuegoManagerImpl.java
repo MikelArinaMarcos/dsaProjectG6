@@ -314,7 +314,7 @@ public class JuegoManagerImpl implements JuegoManager{
             Usuario u = getUsuario(idUsuario);
             Objeto o = getObjeto(idObjeto);
 
-            if(u.getDinero()>=o.getPrecio()){ //El chipi tiene suficiente papel moneda
+            if(u.getDinero()>=o.getPrecio()){ //El user tiene suficiente papel moneda
                 int bolivaresRestantes = u.getDinero()-o.getPrecio();
                 u.setDinero(bolivaresRestantes);
                 session.update(u,idUsuario); //Actualizamos las unidades monetarias del usuario
@@ -359,7 +359,22 @@ public class JuegoManagerImpl implements JuegoManager{
             session.close();
         }
         return null;
-
+    }
+    @Override
+    public Objeto updateObjeto (Objeto objeto, int id){
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            session.update(objeto, id);
+            return objeto;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
     }
 
 

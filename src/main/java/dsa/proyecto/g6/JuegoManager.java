@@ -46,5 +46,7 @@ public interface JuegoManager {
 
     public relacionOU comprarObjeto (int idUsuario, int idObjeto);
 
-    Usuario getUsuario(int idUsuario);
+    public Usuario getUsuario(int idUsuario);
+
+    public Objeto updateObjeto(Objeto objeto, int id);
 }
