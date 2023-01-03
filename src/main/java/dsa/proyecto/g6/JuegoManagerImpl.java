@@ -15,6 +15,7 @@ public class JuegoManagerImpl implements JuegoManager{
 
     private static JuegoManager instance;
     protected Map<String, Usuario> usuarios;
+    protected List<Usuario> listaUsuarios;
     protected List<Objeto> objetos;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
@@ -22,7 +23,7 @@ public class JuegoManagerImpl implements JuegoManager{
 
 
     public JuegoManagerImpl(){
-
+        this.listaUsuarios = new ArrayList<>();
         this.usuarios = new HashMap<>();
         this.objetos = new ArrayList<>();
     }
@@ -41,7 +42,7 @@ public class JuegoManagerImpl implements JuegoManager{
 
     @Override
     public void registrarUsuario(int idUsuario, int xp, String Username, String password, String name, String lastname, String mail, Integer dinero) {
-
+        System.out.println("He entrado a la funcion de registrarUsuario");
         Usuario usuario = new Usuario(idUsuario, xp, Username, password, name, lastname, mail, dinero);
         this.usuarios.put(usuario.getUsername(), usuario);
         logger.info("Usuarui registrado correctamente!!");
@@ -209,7 +210,7 @@ public class JuegoManagerImpl implements JuegoManager{
     }
 
     @Override
-    public VOUsuario registroJugador(VOUsuario usuario) {
+    public Usuario registroJugador(Usuario usuario) {
         Session session = null;
         try{
             session = FactorySession.openSession();
@@ -248,20 +249,11 @@ public class JuegoManagerImpl implements JuegoManager{
     @Override
     public Objeto getObjeto (int idObjeto){
         System.out.println("Vamos a la buqueda del objeto con id "+idObjeto);
-/*        for (Objeto i: this.objetos) {
-            if (i.getIdObjeto()==idObjeto) {
-                System.out.println("getObjeto("+idObjeto+"): "+i);
-                return i;
-            }
-        }
-        System.out.println("not found " + idObjeto);
-        return null;
- */
         Session session = null;
         try{
             session = FactorySession.openSession();
             List<Objeto> listaObjetos = new ArrayList<Objeto>();
-            listaObjetos = session.findAll(new Objeto().getClass());
+            listaObjetos = session.findAll(new Objeto().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
             this.objetos = listaObjetos;
             for (Objeto i: this.objetos) {
                 if (i.getIdObjeto()==idObjeto) {
@@ -280,13 +272,6 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         return null;
     }
-
-
-
-
-
-
-
     @Override
     public Usuario loginJugador(VOCredenciales credenciales) {/*
         Session session = null;
@@ -304,5 +289,78 @@ public class JuegoManagerImpl implements JuegoManager{
         */
         return null;
     }
+    @Override
+    public Usuario updateUsuario (Usuario user, int id){
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            session.update(user, id);
+            return user;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+    @Override
+    public relacionOU comprarObjeto (int idUsuario, int idObjeto){
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            Usuario u = getUsuario(idUsuario);
+            Objeto o = getObjeto(idObjeto);
+
+            if(u.getDinero()>=o.getPrecio()){ //El chipi tiene suficiente papel moneda
+                int bolivaresRestantes = u.getDinero()-o.getPrecio();
+                u.setDinero(bolivaresRestantes);
+                session.update(u,idUsuario); //Actualizamos las unidades monetarias del usuario
+                relacionOU rou = new relacionOU(idObjeto,idUsuario);
+                session.save(rou); //Insertamos los datos en la tabla relacional
+                return rou;
+            }
+            else {
+                System.out.println("El \uD83D\uDC12 no tiene unidades monetarias suficientes");
+                return null;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+
+    }
+    @Override
+    public Usuario getUsuario(int idUsuario) {
+        System.out.println("Vamos a la buqueda del usuario con id " + idUsuario);
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+            listaUsuarios = session.findAll(new Usuario().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
+            this.listaUsuarios = listaUsuarios;
+            for (Usuario i : this.listaUsuarios) {
+                if (i.getIdUsuario() == idUsuario) {
+                    System.out.println("getUsuario(" + idUsuario + "): " + i);
+                    return i;
+                }
+            }
+            System.out.println("not found " + idUsuario);
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+
+    }
+
 
 }

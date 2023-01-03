@@ -20,13 +20,12 @@ public class ObjectHelper {
 
     public static void setter(Object object, String property, Object value) {
         // Method // invoke
-        System.out.println("----------------Començant setter---------");
         Class clase = null;
         Field field = null;
 
         try{
             clase = object.getClass();
-            System.out.println("Clase: "+ clase.toString());
+            //System.out.println("Clase: "+ clase.toString());
             Method[] methods = clase.getDeclaredMethods(); //Array de metodos que imoplican getters/setters
             for (Method m: methods){ //Buscamos todos los metodos de la clase (getter, setters etc)
                 if (m.getName().equals("set"+property.substring(0,1).toUpperCase()+property.substring(1))){ //si el metodo m es igual que setName(ponemos la primera en mayus) hace cosas
@@ -43,7 +42,6 @@ public class ObjectHelper {
 
     public static Object getter(Object object, String property)  {
         // Method // invoke
-        System.out.println("-------------Començant Getter----------------");
         Class clase = null;
         Field field = null;
         Object value = null;
@@ -53,7 +51,6 @@ public class ObjectHelper {
             Method[] methods = clase.getDeclaredMethods();
             for (Method m: methods){
                 if (m.getName().equals("get"+property.substring(0,1).toUpperCase()+property.substring(1))){
-                    System.out.println("TENEMOS METODO "+ m.toString());
                     value = m.invoke(object);
                     return value;
                 }

@@ -59,5 +59,18 @@ public class QueryHelper {
         System.out.println(sb.toString());
         return sb.toString();
     }
+    public static String createQueryUPDATE(Object entity){
+        System.out.println("VAMOS A HACER UPDATE DE "+entity.getClass().getSimpleName());
+        StringBuffer sb = new StringBuffer();
+        sb.append("UPDATE ").append(entity.getClass().getSimpleName()).append(" SET "); //UPDATE Cosa SET
+        String [] fields = ObjectHelper.getFields(entity);
+        for(String field : fields){
+            sb.append(field).append(" = ?, ");
+        }
+        sb=sb.replace(sb.length()-2,sb.length()-1,"");
+        sb.append("WHERE id").append(entity.getClass().getSimpleName()).append(" = ?");
+        System.out.println("QUERY DEL UPDATE-->\n" +sb.toString());
+        return sb.toString();
+    }
 
 }
