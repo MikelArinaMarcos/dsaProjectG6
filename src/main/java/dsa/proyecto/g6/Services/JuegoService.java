@@ -162,5 +162,22 @@ public class JuegoService {
         if (i == null) return Response.status(404).build();
         else  return Response.status(201).entity(i).build();
     }
+    @PUT
+    @ApiOperation(value = "update Usuario", notes = "Porfavor no explotes")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Fino mi \uD83E\uDD19pana\uD83E\uDD19"),
+            @ApiResponse(code = 404, message = "Usuario not found")
+    })
+    @Path("/user/update/{idUsuario}")
+    public Response updateUser(Usuario usuario, @PathParam("idUsuario") int id) {
+        Usuario u = this.jm.updateUsuario(usuario, id);
+        if (u == null)
+            return Response.status(404).build();
+        else
+            return Response.status(201).build();
+    }
+
+
+
 
 }

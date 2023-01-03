@@ -73,7 +73,21 @@ public class SessionImpl implements Session {
         return null;
     }
 
-    public void update(Object object) {
+    public void update(Object object, int id) {
+        String updateQuery  = QueryHelper.createQueryUPDATE(object);
+        PreparedStatement ptsm = null;
+        try {
+            ptsm = conn.prepareStatement(updateQuery);
+            int i = 1;
+            for (String field : ObjectHelper.getFields(object)) {
+                ptsm.setObject(i++, ObjectHelper.getter(object, field));
+            }
+            ptsm.setObject(i,id);
+            System.out.println("SENTENCIA UPDATE QUE SE EJECUTA FINALMENTE!!!\n"+ptsm);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

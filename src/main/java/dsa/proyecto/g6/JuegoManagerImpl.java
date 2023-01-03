@@ -41,7 +41,7 @@ public class JuegoManagerImpl implements JuegoManager{
 
     @Override
     public void registrarUsuario(int idUsuario, int xp, String Username, String password, String name, String lastname, String mail, Integer dinero) {
-
+        System.out.println("He entrado a la funcion de registrarUsuario");
         Usuario usuario = new Usuario(idUsuario, xp, Username, password, name, lastname, mail, dinero);
         this.usuarios.put(usuario.getUsername(), usuario);
         logger.info("Usuarui registrado correctamente!!");
@@ -261,7 +261,7 @@ public class JuegoManagerImpl implements JuegoManager{
         try{
             session = FactorySession.openSession();
             List<Objeto> listaObjetos = new ArrayList<Objeto>();
-            listaObjetos = session.findAll(new Objeto().getClass());
+            listaObjetos = session.findAll(new Objeto().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
             this.objetos = listaObjetos;
             for (Objeto i: this.objetos) {
                 if (i.getIdObjeto()==idObjeto) {
@@ -280,13 +280,6 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         return null;
     }
-
-
-
-
-
-
-
     @Override
     public Usuario loginJugador(VOCredenciales credenciales) {/*
         Session session = null;
@@ -304,5 +297,24 @@ public class JuegoManagerImpl implements JuegoManager{
         */
         return null;
     }
+    @Override
+    public Usuario updateUsuario (Usuario user, int id){
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            session.update(user, id);
+            return user;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+
+
 
 }

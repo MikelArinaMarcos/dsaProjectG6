@@ -41,4 +41,6 @@ public interface JuegoManager {
     Objeto getObjeto(int idObjeto);
 
     public Usuario loginJugador(VOCredenciales credenciales);
+
+    public Usuario updateUsuario(Usuario user, int id);
 }

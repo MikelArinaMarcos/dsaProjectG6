@@ -23,4 +23,11 @@ public class QueryHelperTest {
         Assert.assertEquals("SELECT * FROM Usuario",
                 QueryHelper.createQuerySELECTAll(clase));
     }
+    @Test
+    public void testQueryUPDATE(){
+        Usuario u = new Usuario(1,0,"Batman","super@mail.com","Bin","Superman","cum",1010);
+        Class clase = u.getClass();
+        Assert.assertEquals("UPDATE Usuario SET idUsuario = ? xp = ? username = ? mail = ? name = ? lastName = ? password = ? dinero = ? WHERE idUsuario = ?",
+                QueryHelper.createQueryUPDATE(u));
+    }
 }

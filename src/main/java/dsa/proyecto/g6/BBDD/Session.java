@@ -8,7 +8,7 @@ public interface Session<E> {
     void close();
     void clean();
     Object get(Class theClass, int ID);
-    void update(Object object);
+    void update(Object object, int id);
     void delete(Object object);
     List<Object> findAll(Class theClass);
     List<Object> findAll(Class theClass, HashMap params);
