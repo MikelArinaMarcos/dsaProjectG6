@@ -10,7 +10,6 @@ public class Usuario {
 
 
     private int idUsuario;
-
     private int xp;
     private String username;
     private String mail;
@@ -49,12 +48,14 @@ public class Usuario {
 
     public Usuario(VOUsuario VOusuario) {
          this();
+         this.idUsuario = 0;
+         this.xp = 0;
          this.setUsername(VOusuario.getUsername());
          this.setMail(VOusuario.getMail());
          this.setName(VOusuario.getName());
          this.setLastName(VOusuario.getName());
          this.setPassword(VOusuario.getPassword());
-         this.setDinero(1000000);
+         this.setDinero(100);
     }
 
     public String getUsername() {
