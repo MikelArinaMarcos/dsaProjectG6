@@ -9,7 +9,6 @@ public VOCredenciales(String M , String P){
     this();
     this.setMail(M);
     this.setPassword(P);
-
 }
 
     public VOCredenciales(Usuario a) {

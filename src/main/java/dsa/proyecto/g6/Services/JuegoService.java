@@ -48,7 +48,7 @@ public class JuegoService {
     })
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(VOUsuario user) {//Antes VOUsuario user
+    public Response addUser(VOUsuario voUser) {//Antes VOUsuario user
 /*
         System.out.println("-----REGISTER-----");
         Usuario u = this.jm.añadirUsuario(user);
@@ -59,8 +59,12 @@ public class JuegoService {
         return Response.status(201).entity(vo).build();
 */
 
-        VOUsuario u = this.jm.registroJugador(user);
-        if (u==null) {
+        Usuario user = new Usuario(voUser);
+        user = this.jm.registroJugador(user);
+
+        //VOUsuario u = this.jm.registroJugador(user);//<- V
+
+        if (user == null) {
             return Response.status(500).build();
         }
         else
@@ -82,8 +86,10 @@ public class JuegoService {
         System.out.println("-----LOGIN-----");
         System.out.println("Mail: "+ credencials.getMail());
         Usuario u = this.jm.loginUsuario(credencials);
-        if (u==null)  return Response.status(500).build();
-        else return Response.status(201).entity(u).build();
+        if (u==null)
+            return Response.status(500).build();
+        else
+            return Response.status(201).entity(u).build();
     }
 
     @GET
@@ -150,6 +156,22 @@ public class JuegoService {
     }
 
     @GET
+    @ApiOperation(value = "get an User", notes = "")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Usuario.class),
+            @ApiResponse(code = 404, message = "Usuario not found")
+    })
+    @Path("/user/{idUser}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsuario(@PathParam("idUser") int idUsuario) {
+        Usuario u = this.jm.getUsuario(idUsuario);
+        if (u == null)
+            return Response.status(500).build();
+        else
+            return Response.status(201).entity(u).build();
+    }
+
+    @GET
     @ApiOperation(value = "get an Object", notes = "")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = Objeto.class),
@@ -162,6 +184,9 @@ public class JuegoService {
         if (i == null) return Response.status(404).build();
         else  return Response.status(201).entity(i).build();
     }
+
+
+
     @PUT
     @ApiOperation(value = "update Usuario", notes = "Porfavor no explotes")
     @ApiResponses(value = {
@@ -177,6 +202,25 @@ public class JuegoService {
             return Response.status(201).build();
     }
 
+
+    @POST
+    @ApiOperation(value = "Buy an object", notes = "Añadimos objeto a la tabla relacional")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= relacionOU.class),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/user/buy/{idObjeto}/{idUsuario}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response comprarObjeto(@PathParam("idUsuario")int idUsuario, @PathParam("idObjeto")int idObjeto) {
+        relacionOU rou = this.jm.comprarObjeto(idUsuario, idObjeto);
+
+        if (rou==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
+    }
 
 
 

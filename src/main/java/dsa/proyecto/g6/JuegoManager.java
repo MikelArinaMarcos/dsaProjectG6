@@ -34,7 +34,7 @@ public interface JuegoManager {
 
     List<Objeto> getAllObjects();
 
-    public VOUsuario registroJugador(VOUsuario usuario);
+    public Usuario registroJugador(Usuario usuario);
 
     Objeto insertarObjeto(Objeto objeto);
 
@@ -43,4 +43,8 @@ public interface JuegoManager {
     public Usuario loginJugador(VOCredenciales credenciales);
 
     public Usuario updateUsuario(Usuario user, int id);
+
+    public relacionOU comprarObjeto (int idUsuario, int idObjeto);
+
+    Usuario getUsuario(int idUsuario);
 }
