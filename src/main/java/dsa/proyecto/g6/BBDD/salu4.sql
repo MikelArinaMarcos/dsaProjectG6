@@ -40,15 +40,15 @@ CREATE TABLE IF NOT EXISTS `relacionou` (
   `idUsuario` int(11) DEFAULT NULL,
   KEY `FK__objeto` (`idObjeto`),
   KEY `FK__usuario` (`idUsuario`),
-  CONSTRAINT `FK__objeto` FOREIGN KEY (`idObjeto`) REFERENCES `objeto` (`idObjeto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK__usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK__objeto` FOREIGN KEY (`idObjeto`) REFERENCES `objeto` (`idObjeto`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `FK__usuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla test.relacionou: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla test.relacionou: ~1 rows (aproximadamente)
 DELETE FROM `relacionou`;
 /*!40000 ALTER TABLE `relacionou` DISABLE KEYS */;
 INSERT INTO `relacionou` (`idObjeto`, `idUsuario`) VALUES
-	(2, 4);
+	(2, 5);
 /*!40000 ALTER TABLE `relacionou` ENABLE KEYS */;
 
 -- Volcando estructura para tabla test.usuario
@@ -62,15 +62,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(50) DEFAULT NULL,
   `dinero` int(11) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla test.usuario: ~2 rows (aproximadamente)
 DELETE FROM `usuario`;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`idUsuario`, `xp`, `username`, `mail`, `name`, `lastName`, `password`, `dinero`) VALUES
-	(0, 0, 'a', 'a', 'a', 'a', 'a', 1212),
-	(3, 0, 'Juan', 'ninguno', 'Francisco', 'Exposito', 'neveras', 1212),
-	(4, 10, 'Calico', 'calico@electronico.com', 'Calico', 'Electronico', 'Muzaman', 1000);
+	(5, 0, 'Alfredo', 'alfredo', 'asdasd', 'asdasd', 'asdasd', 99999),
+	(6, 0, 'Retrovisor', 'asdasf', 'asfasgf', 'asfasgf', 'asgadsg', 100);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
