@@ -105,6 +105,7 @@ public class SessionImpl implements Session {
                 pstm.setObject(i,value.toString());
                 i++;
             }
+            
             System.out.println("SENTENCIA DELETE:\n"+pstm);
             pstm.executeQuery();
             return 1;
