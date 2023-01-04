@@ -26,7 +26,7 @@ public interface JuegoManager {
 
     List<Usuario> getAllUsers();
 
-    public Usuario deleteUser(VOUsuario VOusuario);
+    public int deleteUser(Usuario user);
 
     public Usuario getUserByKey(String key);
 

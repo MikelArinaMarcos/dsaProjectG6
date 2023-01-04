@@ -91,8 +91,28 @@ public class SessionImpl implements Session {
 
     }
 
-    public void delete(Object object) {
 
+
+    public int delete(Object object, HashMap params) {
+        String deleteQuery = QueryHelper.createQueryDELETE(object,params);
+        PreparedStatement pstm = null;
+        try{
+            pstm = conn.prepareStatement(deleteQuery);
+            System.out.println("SENTENCIA DELETE:\n"+pstm);
+
+            int i=1;
+            for (Object value : params.values()) {
+                pstm.setObject(i,value.toString());
+                i++;
+            }
+            System.out.println("SENTENCIA DELETE:\n"+pstm);
+            pstm.executeQuery();
+            return 1;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 /*Crea una lista de los objetos que pasamos como parametro (relamente pasamos una clase?)*/
     public List<Object> findAll(Class theClass) {
