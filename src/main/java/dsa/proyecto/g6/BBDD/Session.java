@@ -9,9 +9,10 @@ public interface Session<E> {
     void clean();
     Object get(Class theClass, int ID);
     void update(Object object, int id);
-    void delete(Object object);
+    //void delete(Object object);
     List<Object> findAll(Class theClass);
     List<Object> findAll(Class theClass, HashMap params);
     List<Object> query(String query, Class theClass, HashMap params);
     public List<Object> findByParams(Object entity, HashMap params);
+    public int delete(Object object, HashMap params);
 }

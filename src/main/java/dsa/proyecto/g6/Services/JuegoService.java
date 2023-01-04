@@ -49,15 +49,27 @@ public class JuegoService {
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(VOUsuario voUser) {//Antes VOUsuario user
+/*
+        System.out.println("-----REGISTER-----");
+        Usuario u = this.jm.añadirUsuario(user);
+        if (u==null) return Response.status(500).build();
+
+        VOUsuario vo = new VOUsuario(u);
+        System.out.println(vo);
+        return Response.status(201).entity(vo).build();
+*/
 
         Usuario user = new Usuario(voUser);
         user = this.jm.registroJugador(user);
 
-        if (user==null) {
+        //VOUsuario u = this.jm.registroJugador(user);//<- V
+
+        if (user == null) {
             return Response.status(500).build();
         }
         else
-            return Response.status(201).entity(user).build();
+            return Response.status(201).build();
+
 
     }
 

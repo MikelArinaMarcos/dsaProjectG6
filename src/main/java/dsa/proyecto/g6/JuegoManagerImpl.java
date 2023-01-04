@@ -168,7 +168,7 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
     }
 
-    @Override
+    /*@Override
     public Usuario deleteUser(VOUsuario VOusuario) {
         logger.info("Trying to remove new User: " + VOusuario.getUsername());
 
@@ -181,6 +181,8 @@ public class JuegoManagerImpl implements JuegoManager{
 
         return null;
     }
+
+     */
 
     @Override
     public Usuario getUserByKey(String key) {
@@ -377,5 +379,22 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
     }
 
+    @Override
+    public int deleteUser (Usuario user){
+        Session session = null;
+        HashMap<String,Integer> params = new HashMap<String,Integer>();
+        params.put("idUsuario",user.getIdUsuario());
+        System.out.println("Parametros que pasamos: idUsuario"+params.get("idUsuario"));
+        try{
+            session = FactorySession.openSession();
+            int res = session.delete(user,params);
+            System.out.println("RESULTADO DELETE "+res);
+            return res;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return -2;
+    }
 
 }
