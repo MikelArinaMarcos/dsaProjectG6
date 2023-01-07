@@ -8,7 +8,7 @@ function inicioSesion(){
     })
         .done(function (data, status){
             alert("Welcome");
-            window.location = "../html/informacion.html";
+            location.href = "../html/informacion.html";
         })
         .fail(function(xhr, err){
             alert("Usuario o contraseña incorrectos");
