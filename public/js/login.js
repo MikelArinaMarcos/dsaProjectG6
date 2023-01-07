@@ -15,3 +15,4 @@ function inicioSesion(){
             location.reload();
         })
 };
+
