@@ -11,7 +11,7 @@ $(document).ready(function(){
         var name = $('#name').val();
         var password = $('#password').val();
         var mail = $('#mail').val();
-        var username = $('#name').val();
+        var username = $('#username').val();
         var lastName = $('#lastName').val();
 
         var body = {
