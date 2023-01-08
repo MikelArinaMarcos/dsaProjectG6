@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #cb232c, #ce1d61);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+/* Contenedor del menú */
+.nav{
+    float: right;
+    margin-right: 60px;
+}
+
+header{
+    background-color: #221f1f;
+    background-size: cover;
+    padding: 30px 10px;
+}
+
+.nav ul{
+    list-style: none;
+}
+
+li{
+    float: left;
+    list-style: none;
+    padding: 0px;
+    margin-right:10px;
+    margin-top: 10px;
+}
+
+.ul > li >a{
+    margin-left: 40px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 15px;
+    color: #252525;
+}
+
+.ul li a:hover{
+    color: white;
+    transition: all .3s;
+}
+
+header nav a.activo{
+    color: white;
+}
+
+.title {
+    color: #252525;
+    font-size: 100px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.description {
+    text-align: center;
+    color: #252525;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.buttonsInit {
+    text-align: center;
+}
+
+button {
+    color: #fff;
+    text-shadow: #3d3d3d;
+    border: 8px solid black;
+    box-shadow: #3d3d3d;
+    background: linear-gradient(to right, #cb232c, #ce1d61);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
