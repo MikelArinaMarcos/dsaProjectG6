@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel ="stylesheet" href ="../css/signup.css">
 
         <script src="https://kit.fontawesome.com/fbbddd9141.js" crossorigin="anonymous"></script>
@@ -15,39 +16,30 @@
     </head>
 
     <body>
-    <header>
-        <div class ="contenedor"></div>
-        <img src="../resources/LOGO.png" alt="PLANET HEROES" class="logotipo"></a>
-        <nav class="nav">
-            <ul class="ul">
-                <li><a href="descubrir.html">DESCUBRIR</a></li>
-                <li><a href="tienda.html">TIENDA</a></li>
-                <li><a href="login.html">LOG IN</a></li>
-                <li><a href="signup.html" class="activo">SIGN UP</a></li>
-                <li><a href="soporte.html" >OTROS </a></li>
-                <li><a href="../index.html" >SALIR</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <img class="imagenFondo" src="../resources/eetac.jpeg">
-        <div class="formularioSignUp">
-            <form action="" method="post">
-                <h1>REGISTRO</h1>
-                <input type="text" id="username" name="username" class="username" placeholder="Username">
-                </br>
-                <input type="mail" id="mail" name="mail" class="mail" placeholder="Mail">
-                </br>
+        <form action="" method="post">
+            <h1 class="title">REGISTER</h1>
+            <label>
+                <i class="fa-solid fa-user"></i>
                 <input type="name" id="name" name="name" class="name" placeholder="Name">
-                </br>
+            </label>
+            <label>
+                <i class="fa-solid fa-user"></i>
                 <input type="lastName" id="lastName" name="lastName" class="lastName" placeholder="Last Name">
-                </br>
+            </label>
+            <label>
+                <i class="fa-regular fa-envelope"></i>
+                <input type="mail" id="mail" name="mail" class="mail" placeholder="Mail">
+            </label>
+            <label>
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="username" name="username" class="username" placeholder="Username">
+            </label>
+            <label>
+                <i class="fa-solid fa-lock"></i>
                 <input type="password" id="password" name="password" class="password" placeholder="Password">
-                </br>
-                <button class="button" id="signupButton" onclick="registro()"><a>Sign me up</a></button>
+            </label>
+            <button class="button" id="signupButton" onclick="registro()"><a>Sign me up</a></button>
             </form>
         </div>
-    </main>
-
     </body>
 </html>
