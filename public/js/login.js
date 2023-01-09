@@ -1,4 +1,11 @@
-function inicioSesion(){
+$(document).ready(function(){
+    $("#myForm").submit(function(event){
+        inicioSesion(event);
+    });
+});
+
+function inicioSesion(event){
+    event.preventDefault();
     var mail = $('#mail').val();
     var password = $('#password').val();
     $.post({
@@ -8,11 +15,11 @@ function inicioSesion(){
     })
         .done(function (data, status){
             alert("Welcome");
-            location.href = "../html/informacion.html";
+            document.location= "/html/informacion.html";
         })
         .fail(function(xhr, err){
             alert("Usuario o contraseña incorrectos");
-            location.reload();
+            //document.location = "/html/login.html";
         })
 };
 
