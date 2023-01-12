@@ -93,22 +93,7 @@ public class JuegoService {
 
     }
 
-   /* @DELETE
-    @ApiOperation(value = "delete a User", notes = "asdasd")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful"),
-            @ApiResponse(code = 404, message = "Track not found")
-    })
-    @Path("/{mail}")
-    public Response deleteUser(@PathParam("mail") String mail) {
-        String key = this.jm.getUserByMail(mail);
-        Usuario t = this.jm.getUserByKey(key);
-        VOUsuario vou = new VOUsuario(t);
-        if (t == null) return Response.status(404).build();
-        else this.jm.deleteUser(vou);
-        return Response.status(201).build();
-    }
-    */
+
 
     @GET
     @ApiOperation(value = "get all Objects", notes = "asdasd")
@@ -221,15 +206,15 @@ public class JuegoService {
         else
             return Response.status(201).build();
     }
-    @PUT
+    @DELETE
     @ApiOperation(value = "Deletus de un User", notes = "https://cdn.drawception.com/drawings/VjJWWdm1V7.png")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful"),
             @ApiResponse(code = 500, message = "Validation Error")
 
     })
-    @Path("/usuario/delete")
-    //@Consumes(MediaType.APPLICATION_JSON)
+    @Path("/usuario/delete/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
     public Response deleteUsuario(Usuario user) {
         System.out.println("Saludos entro a eliminar Fetus Deletus");
         int res = this.jm.deleteUser(user);
@@ -241,4 +226,41 @@ public class JuegoService {
             return Response.status(500).build();
     }
 
+
+    @POST
+    @ApiOperation(value = "Add an issue", notes = "Añadimos issue")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= Issue.class),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/issue")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response Issue(Issue Issue) {
+
+        Issue u = this.jm.Issue(Issue);
+        if (u==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
+    }
+
+
+    /* @DELETE
+    @ApiOperation(value = "delete a User", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 404, message = "Track not found")
+    })
+    @Path("/{mail}")
+    public Response deleteUser(@PathParam("mail") String mail) {
+        String key = this.jm.getUserByMail(mail);
+        Usuario t = this.jm.getUserByKey(key);
+        VOUsuario vou = new VOUsuario(t);
+        if (t == null) return Response.status(404).build();
+        else this.jm.deleteUser(vou);
+        return Response.status(201).build();
+    }
+    */
 }

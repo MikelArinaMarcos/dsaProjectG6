@@ -4,10 +4,7 @@ import dsa.proyecto.g6.BBDD.FactorySession;
 import dsa.proyecto.g6.BBDD.Session;
 import dsa.proyecto.g6.Models.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 //import java.util.logging.Logger;
 import org.apache.log4j.Logger;
 
@@ -17,6 +14,8 @@ public class JuegoManagerImpl implements JuegoManager{
     protected Map<String, Usuario> usuarios;
     protected List<Usuario> listaUsuarios;
     protected List<Objeto> objetos;
+
+    protected Issue issue;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
 
@@ -379,6 +378,9 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
     }
 
+
+
+
     @Override
     public int deleteUser (Usuario user){
         Session session = null;
@@ -396,5 +398,25 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         return -2;
     }
+
+    @Override
+    public Issue Issue(Issue issue) {
+        logger.info("Trying to create new Issue ");
+
+        String a = issue.date;
+        String b = issue.informer;
+        String c = issue.message;
+        Issue Issue1 = new Issue(a,b,c);
+
+        return Issue1;
+    }
+
+/*logger.info("Trying to create new Object " + VOObjeto.getNombre());
+
+        this.objetos.add(VOObjeto);
+        logger.info("New Object added = "+VOObjeto);
+
+        return VOObjeto;*/
+
 
 }
