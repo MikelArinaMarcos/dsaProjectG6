@@ -13,6 +13,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,16 +51,6 @@ public class JuegoService {
     @Path("/users/register")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(VOUsuario voUser) {//Antes VOUsuario user
-/*
-        System.out.println("-----REGISTER-----");
-        Usuario u = this.jm.añadirUsuario(user);
-        if (u==null) return Response.status(500).build();
-
-        VOUsuario vo = new VOUsuario(u);
-        System.out.println(vo);
-        return Response.status(201).entity(vo).build();
-*/
-
         Usuario user = new Usuario(voUser);
         user = this.jm.registroJugador(user);
 
@@ -68,7 +60,7 @@ public class JuegoService {
             return Response.status(500).build();
         }
         else
-            return Response.status(201).build();
+            return Response.status(201).entity(user).build();
 
 
     }
@@ -108,22 +100,6 @@ public class JuegoService {
 
     }
 
-    @DELETE
-    @ApiOperation(value = "delete a User", notes = "asdasd")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful"),
-            @ApiResponse(code = 404, message = "Track not found")
-    })
-    @Path("/{mail}")
-    public Response deleteUser(@PathParam("mail") String mail) {
-        String key = this.jm.getUserByMail(mail);
-        Usuario t = this.jm.getUserByKey(key);
-        VOUsuario vou = new VOUsuario(t);
-        if (t == null) return Response.status(404).build();
-        else this.jm.deleteUser(vou);
-        return Response.status(201).build();
-    }
-
     @GET
     @ApiOperation(value = "get all Objects", notes = "asdasd")
     @ApiResponses(value = {
@@ -137,6 +113,27 @@ public class JuegoService {
         return Response.status(201).entity(entity).build();
 
     }
+
+    @GET
+    @ApiOperation(value = "Ranking de Usuarios", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Usuario.class, responseContainer="List"),
+    })
+    @Path("/stats/ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsersRanking() {
+        List<Usuario> listaRanking = this.jm.getAllUsers();
+        Collections.sort(listaRanking, new Comparator<Usuario>() {
+            @Override
+            public int compare(Usuario p1, Usuario p2) {
+                return new Integer(p2.getXp()).compareTo(new Integer(p1.getXp()));
+            }
+        });
+        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(listaRanking){};
+        return Response.status(201).entity(entity).build();
+
+    }
+
     @POST
     @ApiOperation(value = "Add an object", notes = "Añadimos objeto a la tabla de objetos")
     @ApiResponses(value = {
@@ -221,6 +218,7 @@ public class JuegoService {
         else
             return Response.status(201).build();
     }
+
     @PUT
     @ApiOperation(value = "update Objeto", notes = "Porfavor no explotes v2")
     @ApiResponses(value = {
