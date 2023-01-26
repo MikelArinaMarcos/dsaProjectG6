@@ -17,6 +17,7 @@ public class JuegoManagerImpl implements JuegoManager{
     protected Map<String, Usuario> usuarios;
     protected List<Usuario> listaUsuarios;
     protected List<Objeto> objetos;
+    protected List<FAQ> preguntas;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
 
@@ -26,6 +27,7 @@ public class JuegoManagerImpl implements JuegoManager{
         this.listaUsuarios = new ArrayList<>();
         this.usuarios = new HashMap<>();
         this.objetos = new ArrayList<>();
+        this.preguntas = new ArrayList<>();
     }
 
     public static JuegoManager getInstance(){
@@ -395,6 +397,37 @@ public class JuegoManagerImpl implements JuegoManager{
             e.printStackTrace();
         }
         return -2;
+    }
+
+    @Override
+    public Issue Issue(Issue issue) {
+        logger.info("Trying to create new Issue ");
+
+        String a = issue.date;
+        String b = issue.informer;
+        String c = issue.message;
+        Issue Issue1 = new Issue(a,b,c);
+
+        return Issue1;
+    }
+
+    @Override
+    public List<FAQ> getPreguntas(){
+        List<FAQ> preguntas = this.preguntas;
+        return preguntas;
+    }
+
+    @Override
+    public int sizePreguntas(){
+        int ret = this.preguntas.size();
+        return ret;
+    }
+
+    @Override
+    public FAQ añadirFAQ(FAQ faq) {
+        logger.info("Vamos a añadir la FAQ: "+faq.getPregunta());
+        this.preguntas.add(faq);
+        return faq;
     }
 
 }

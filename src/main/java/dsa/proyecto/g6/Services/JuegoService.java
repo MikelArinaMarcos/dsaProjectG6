@@ -13,6 +13,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,6 +38,11 @@ public class JuegoService {
             this.jm.añadirObjeto(new Objeto(1,"Seiken","Espada legendaria de ESCANOR (un Dios entre humanos)",10000));
             this.jm.añadirObjeto(new Objeto(2,"Excalibur","Las leyendas ni se acercan a su verdadero poder",15000));
             this.jm.añadirObjeto(new Objeto(3,"Muramasa","La katana definitva (el poder corrompe a los mas debiles)",20000));
+        }
+        if (jm.sizePreguntas()==0){
+            this.jm.añadirFAQ(new FAQ("Como disparo?","Pulsando la pantalla crack"));
+            this.jm.añadirFAQ(new FAQ("Como me muevo?","Con el joystick crack"));
+            this.jm.añadirFAQ(new FAQ("Como mato a la colmena?","No se puede"));
         }
     }
 
@@ -123,6 +130,27 @@ public class JuegoService {
         return Response.status(201).entity(entity).build();
 
     }
+
+    @GET
+    @ApiOperation(value = "Ranking de Usuarios", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Usuario.class, responseContainer="List"),
+    })
+    @Path("/stats/ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsersRanking() {
+        List<Usuario> listaRanking = this.jm.getAllUsers();
+        Collections.sort(listaRanking, new Comparator<Usuario>() {
+            @Override
+            public int compare(Usuario p1, Usuario p2) {
+                return new Integer(p2.getXp()).compareTo(new Integer(p1.getXp()));
+            }
+        });
+        GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(listaRanking){};
+        return Response.status(201).entity(entity).build();
+
+    }
+
     @POST
     @ApiOperation(value = "Add an object", notes = "Añadimos objeto a la tabla de objetos")
     @ApiResponses(value = {
@@ -239,6 +267,39 @@ public class JuegoService {
         }
         else
             return Response.status(500).build();
+    }
+
+    @POST
+    @ApiOperation(value = "Add an issue", notes = "Añadimos issue")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= Issue.class),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/issue")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response Issue(Issue Issue) {
+
+        Issue u = this.jm.Issue(Issue);
+        if (u==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
+    }
+
+    @GET
+    @ApiOperation(value = "Obten todas las preguntas", notes = "asdasd")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = FAQ.class, responseContainer="List"),
+    })
+    @Path("/FAQs")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPreguntas() {
+        List<FAQ> preguntas = this.jm.getPreguntas();
+        GenericEntity<List<FAQ>> entity = new GenericEntity<List<FAQ>>(preguntas) {};
+        return Response.status(201).entity(entity).build();
+
     }
 
 }
