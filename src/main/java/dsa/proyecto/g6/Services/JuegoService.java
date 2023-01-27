@@ -302,4 +302,37 @@ public class JuegoService {
 
     }
 
+
+    @GET
+    @ApiOperation(value = "get an Enemy", notes = "")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Enemigo.class),
+            @ApiResponse(code = 404, message = "Enemy not found")
+    })
+    @Path("/enemy/{idEnemy}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEnemy(@PathParam("idEnemy") int idEnemy) {
+        Enemigo u = this.jm.getEnemy(idEnemy);
+        if (u == null)
+            return Response.status(500).build();
+        else
+            return Response.status(201).entity(u).build();
+    }
+
+
+
+    @GET
+    @ApiOperation(value = "get all Enemys", notes = "Enemy")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Enemigo.class, responseContainer="List"),
+    })
+    @Path("/enemy")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEnemy() {
+        List<Enemigo> listaEnemigo = this.jm.getAllEnemys();
+        GenericEntity<List<Enemigo>> entity = new GenericEntity<List<Enemigo>>(listaEnemigo){};
+        return Response.status(201).entity(entity).build();
+
+    }
+
 }

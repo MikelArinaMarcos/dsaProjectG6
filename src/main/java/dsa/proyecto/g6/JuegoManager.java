@@ -57,4 +57,8 @@ public interface JuegoManager {
     public int sizePreguntas();
 
     public FAQ añadirFAQ(FAQ faq);
+
+    Enemigo getEnemy(int idEnemy);
+
+    List<Enemigo> getAllEnemys();
 }

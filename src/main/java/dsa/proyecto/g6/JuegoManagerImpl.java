@@ -20,7 +20,7 @@ public class JuegoManagerImpl implements JuegoManager{
     protected List<FAQ> preguntas;
 
     final static Logger logger = Logger.getLogger(JuegoManager.class);
-
+    private List<Enemigo> listaEnemigo;
 
 
     public JuegoManagerImpl(){
@@ -428,6 +428,53 @@ public class JuegoManagerImpl implements JuegoManager{
         logger.info("Vamos a añadir la FAQ: "+faq.getPregunta());
         this.preguntas.add(faq);
         return faq;
+    }
+
+
+
+    @Override
+    public Enemigo getEnemy(int idEnemy) {
+        System.out.println("Vamos a la buqueda del enemigo con id " + idEnemy);
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            List<Enemigo> listaEnemigo = new ArrayList<Enemigo>();
+            listaEnemigo = session.findAll(new Enemigo().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
+            this.listaEnemigo = listaEnemigo;
+            for (Enemigo i : this.listaEnemigo) {
+                if (i.getIdEnemy() == idEnemy) {
+                    System.out.println("getEnemy(" + idEnemy + "): " + i);
+                    return i;
+                }
+            }
+            System.out.println("not found " + idEnemy);
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+
+    @Override
+    public List<Enemigo> getAllEnemys() {
+
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Enemigo> listaEnemy = new ArrayList<Enemigo>();
+            listaEnemy = session.findAll(new Enemigo().getClass());
+            return listaEnemy;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
     }
 
 }
