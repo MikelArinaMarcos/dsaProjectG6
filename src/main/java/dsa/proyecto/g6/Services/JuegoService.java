@@ -249,25 +249,7 @@ public class JuegoService {
         else
             return Response.status(201).build();
     }
-    @PUT
-    @ApiOperation(value = "Deletus de un User", notes = "https://cdn.drawception.com/drawings/VjJWWdm1V7.png")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful"),
-            @ApiResponse(code = 500, message = "Validation Error")
 
-    })
-    @Path("/usuario/delete")
-    //@Consumes(MediaType.APPLICATION_JSON)
-    public Response deleteUsuario(Usuario user) {
-        System.out.println("Saludos entro a eliminar Fetus Deletus");
-        int res = this.jm.deleteUser(user);
-        System.out.println("RES ES "+res);
-        if (res==1) {
-            return Response.status(201).build();
-        }
-        else
-            return Response.status(500).build();
-    }
 
     @POST
     @ApiOperation(value = "Add an issue", notes = "Añadimos issue")
@@ -334,5 +316,31 @@ public class JuegoService {
         return Response.status(201).entity(entity).build();
 
     }
+
+    @PUT
+    @ApiOperation(value = "Deletus de un User", notes = "https://cdn.drawception.com/drawings/VjJWWdm1V7.png")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/usuario/delete/{idUsuario}")
+    //@Consumes(MediaType.APPLICATION_JSON)
+    public Response deleteUsuario(@PathParam("idUsuario") int idUsuario) {
+        System.out.println("Saludos entro a eliminar Fetus Deletus");
+        Usuario user = this.jm.getUsuario(idUsuario);
+
+
+        int res = this.jm.deleteUser(user);
+        System.out.println("RES ES "+res);
+        if (res==1) {
+            return Response.status(201).build();
+        }
+        else
+            return Response.status(500).build();
+    }
+
+
+
 
 }
