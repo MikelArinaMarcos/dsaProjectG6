@@ -61,4 +61,6 @@ public interface JuegoManager {
     Enemigo getEnemy(int idEnemy);
 
     List<Enemigo> getAllEnemys();
+
+    Usuario registroJugador2(Usuario usuario);
 }

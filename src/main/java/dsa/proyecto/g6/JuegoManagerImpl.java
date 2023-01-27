@@ -340,30 +340,7 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
 
     }
-    @Override
-    public Usuario getUsuario(int idUsuario) {
-        System.out.println("Vamos a la buqueda del usuario con id " + idUsuario);
-        Session session = null;
-        try {
-            session = FactorySession.openSession();
-            List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-            listaUsuarios = session.findAll(new Usuario().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
-            this.listaUsuarios = listaUsuarios;
-            for (Usuario i : this.listaUsuarios) {
-                if (i.getIdUsuario() == idUsuario) {
-                    System.out.println("getUsuario(" + idUsuario + "): " + i);
-                    return i;
-                }
-            }
-            System.out.println("not found " + idUsuario);
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return null;
-    }
+
     @Override
     public Objeto updateObjeto (Objeto objeto, int id){
         Session session = null;
@@ -476,5 +453,68 @@ public class JuegoManagerImpl implements JuegoManager{
         }
         return null;
     }
+
+    @Override
+    public Usuario getUsuario(int idUsuario) {
+        System.out.println("Vamos a la buqueda del usuario con id " + idUsuario);
+        Session session = null;
+        try {
+            session = FactorySession.openSession();
+            List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+            listaUsuarios = session.findAll(new Usuario().getClass()); //Para no trabajar ne memoria, pedimos a la BBDD y la seteamos
+            this.listaUsuarios = listaUsuarios;
+            for (Usuario i : this.listaUsuarios) {
+                if (i.getIdUsuario() == idUsuario) {
+                    System.out.println("getUsuario(" + idUsuario + "): " + i);
+                    return i;
+                }
+            }
+            System.out.println("not found " + idUsuario);
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return null;
+    }
+
+
+
+    @Override
+    public Usuario registroJugador2(Usuario usuario) {
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+            listaUsuarios = session.findAll(new Usuario().getClass());
+            this.listaUsuarios = listaUsuarios;
+            System.out.println(listaUsuarios);
+            System.out.println();
+            System.out.println("a");
+            for (Usuario i : this.listaUsuarios) {
+                System.out.println(i.getMail());
+                System.out.println(i.getUsername());
+                if (i.getUsername().equals(usuario.getUsername())) {
+                    return null;
+                } else if (i.getMail().equals(usuario.getMail())) {
+                    return null;
+                }
+            }
+            session.save(usuario);
+            return usuario;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
+        finally {
+            session.close();
+        }
+        return null;
+    }
+
+
+
 
 }

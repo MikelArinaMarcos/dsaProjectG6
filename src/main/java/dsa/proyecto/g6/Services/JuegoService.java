@@ -57,7 +57,7 @@ public class JuegoService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addUser(VOUsuario voUser) {//Antes VOUsuario user
         Usuario user = new Usuario(voUser);
-        user = this.jm.registroJugador(user);
+        user = this.jm.registroJugador2(user);
         if (user == null) {
             return Response.status(500).build();
         }
@@ -324,7 +324,7 @@ public class JuegoService {
             @ApiResponse(code = 500, message = "Validation Error")
 
     })
-    @Path("/usuario/delete/{idUsuario}")
+    @Path("/user/delete/{idUsuario}")
     //@Consumes(MediaType.APPLICATION_JSON)
     public Response deleteUsuario(@PathParam("idUsuario") int idUsuario) {
         System.out.println("Saludos entro a eliminar Fetus Deletus");
