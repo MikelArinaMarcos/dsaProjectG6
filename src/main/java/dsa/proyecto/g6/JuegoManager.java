@@ -63,4 +63,8 @@ public interface JuegoManager {
     List<Enemigo> getAllEnemys();
 
     Usuario registroJugador2(Usuario usuario);
+
+    Issue anañirIssue(Issue issue);
+
+    List<Issue> getAllIssues();
 }

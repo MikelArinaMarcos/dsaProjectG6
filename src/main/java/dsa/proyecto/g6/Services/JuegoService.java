@@ -343,4 +343,39 @@ public class JuegoService {
 
 
 
+    @POST
+    @ApiOperation(value = "Add an Issue", notes = "Añadimos issue a la tabla de objetos")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response= Issue.class),
+            @ApiResponse(code = 500, message = "Validation Error")
+
+    })
+    @Path("/Issue/add")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response añadirIssue(Issue issue) {
+        Issue u = this.jm.anañirIssue(issue);
+        if (u==null) {
+            return Response.status(500).build();
+        }
+        else
+            return Response.status(201).build();
+    }
+
+
+    @GET
+    @ApiOperation(value = "get all Issues", notes = "Issues")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = Issue.class, responseContainer="List"),
+    })
+    @Path("/Issues")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getIssues() {
+        List<Issue> issueList = this.jm.getAllIssues();
+        GenericEntity<List<Issue>> entity = new GenericEntity<List<Issue>>(issueList){};
+        //List<Usuario> tracks = this.jm.getAllUsers();
+        //GenericEntity<List<Usuario>> entity = new GenericEntity<List<Usuario>>(tracks) {};
+        return Response.status(201).entity(entity).build()  ;
+
+    }
+
 }

@@ -26,7 +26,7 @@ public class Issue {
     }
 
     public void setInformer(String informer) {
-        informer = informer;
+        this.informer = informer;
     }
 
     public String getMessage() {

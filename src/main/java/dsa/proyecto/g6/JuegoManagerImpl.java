@@ -19,6 +19,8 @@ public class JuegoManagerImpl implements JuegoManager{
     protected List<Objeto> objetos;
     protected List<FAQ> preguntas;
 
+    protected List<Issue> issues;
+
     final static Logger logger = Logger.getLogger(JuegoManager.class);
     private List<Enemigo> listaEnemigo;
 
@@ -28,6 +30,7 @@ public class JuegoManagerImpl implements JuegoManager{
         this.usuarios = new HashMap<>();
         this.objetos = new ArrayList<>();
         this.preguntas = new ArrayList<>();
+        this.issues = new ArrayList<>();
     }
 
     public static JuegoManager getInstance(){
@@ -388,6 +391,10 @@ public class JuegoManagerImpl implements JuegoManager{
         return Issue1;
     }
 
+
+
+
+
     @Override
     public List<FAQ> getPreguntas(){
         List<FAQ> preguntas = this.preguntas;
@@ -514,6 +521,45 @@ public class JuegoManagerImpl implements JuegoManager{
         return null;
     }
 
+
+    @Override
+    public Issue anañirIssue (Issue issue){
+
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            session.save(issue);
+            issues.add(issue);
+            return issue;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+
+    }
+
+    @Override
+    public List<Issue> getAllIssues() {
+        Session session = null;
+        try{
+            session = FactorySession.openSession();
+            List<Issue> issueList = new ArrayList<Issue>();
+            issueList = session.findAll(new Issue().getClass());
+            return issueList;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+        return null;
+
+    }
 
 
 
